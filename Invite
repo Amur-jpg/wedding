@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Аманкул &amp; Айгерим — той чакыруу</title>
+<meta name="description" content="Аманкул жана Айгеримдин үйлөнүү тоюна чакыруу / Приглашение на свадьбу Аманкула и Айгерим">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;600&family=Marck+Script&family=Prata&display=swap&subset=cyrillic" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#EDE2CE;
+    --card:#FBF5E9;
+    --card-2:#F3E8D4;
+    --ink:#3B2A1C;
+    --ink-soft:#7C6753;
+    --gold:#B8862B;
+    --garnet:#8E2F3C;
+    --amber:#CE7429;
+    --line:rgba(59,42,28,.16);
+    --display:'Prata', 'Cormorant Garamond', 'Times New Roman', serif;
+    --hand:'Marck Script', cursive;
+    --body:'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);overflow-x:hidden;color:var(--ink);
+    font-family:var(--body);font-weight:300;line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+  }
+  .sheet{
+    max-width:640px;margin:0 auto;position:relative;overflow:hidden;
+    background:radial-gradient(88% 42% at 50% 0%, #FFFDF7 0%, var(--card) 42%, var(--card-2) 100%);
+    box-shadow:0 0 70px rgba(59,42,28,.16);
+  }
+  .content{position:relative;z-index:2}
+
+  /* ======= ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА БЕЗ JAVASCRIPT ======= */
+  .lng-input{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .content .ru{display:none}
+  #lng-ru:checked ~ .content .ky{display:none}
+  #lng-ru:checked ~ .content .ru{display:inline}
+  #lng-ru:checked ~ .content .b.ru{display:block}
+
+  .lang{position:sticky;top:0;z-index:30;display:flex;justify-content:flex-end;padding:14px 20px 0}
+  .lang label{
+    font-family:var(--body);font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;
+    background:rgba(255,253,247,.8);border:1px solid var(--line);color:var(--ink-soft);
+    padding:9px 15px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    -webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;
+  }
+  .lang label:first-of-type{border-right:none}
+  #lng-ky:checked ~ .content .lang label[for="lng-ky"],
+  #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--garnet);border-color:var(--garnet);color:#FBF5E9}
+  .lng-input:focus-visible ~ .content .lang label{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* ================= ОСЕННИЙ ФОН ================= */
+  .garden{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+  .deco{position:absolute;opacity:.52}
+  .deco.a{top:1%;left:-58px;width:215px}
+  .deco.b2{top:17%;right:-66px;width:245px;opacity:.44}
+  .deco.c{top:41%;left:-66px;width:235px;opacity:.47}
+  .deco.d{top:62%;right:-54px;width:205px;opacity:.42}
+  .deco.e{bottom:-1%;left:-42px;width:195px;opacity:.5}
+  .deco.f{bottom:2%;right:-60px;width:220px;opacity:.44}
+
+  .sway{
+    transform-box:fill-box;transform-origin:50% 100%;
+    -webkit-animation:sway 10s ease-in-out infinite alternate;
+    animation:sway 10s ease-in-out infinite alternate;
+  }
+  .sway.s2{-webkit-animation-duration:12.5s;animation-duration:12.5s;-webkit-animation-delay:-3s;animation-delay:-3s}
+  .sway.s3{-webkit-animation-duration:14s;animation-duration:14s;-webkit-animation-delay:-7s;animation-delay:-7s}
+  
+  @-webkit-keyframes sway{from{-webkit-transform:rotate(-2.4deg);transform:rotate(-2.4deg)}to{-webkit-transform:rotate(2.4deg);transform:rotate(2.4deg)}}
+  @keyframes sway{from{-webkit-transform:rotate(-2.4deg);transform:rotate(-2.4deg)}to{-webkit-transform:rotate(2.4deg);transform:rotate(2.4deg)}}
+
+  .leaf-wrap{
+    position:absolute;top:-50px;
+    -webkit-animation:fall linear infinite;
+    animation:fall linear infinite;
+  }
+  .leaf{
+    width:14px;height:14px;border-radius:0 68% 0 68%;
+    -webkit-animation:spin linear infinite;
+    animation:spin linear infinite;opacity:.55;
+  }
+  
+  @-webkit-keyframes fall{
+    0%{-webkit-transform:translate3d(0,-50px,0);transform:translate3d(0,-50px,0);opacity:0}
+    10%{opacity:1}90%{opacity:.9}
+    100%{-webkit-transform:translate3d(70px,112vh,0);transform:translate3d(70px,112vh,0);opacity:0}
+  }
+  @keyframes fall{
+    0%{-webkit-transform:translate3d(0,-50px,0);transform:translate3d(0,-50px,0);opacity:0}
+    10%{opacity:1}90%{opacity:.9}
+    100%{-webkit-transform:translate3d(70px,112vh,0);transform:translate3d(70px,112vh,0);opacity:0}
+  }
+
+  @-webkit-keyframes spin{
+    0%{-webkit-transform:rotate(0) skewX(0);transform:rotate(0) skewX(0)}
+    50%{-webkit-transform:rotate(200deg) skewX(-14deg);transform:rotate(200deg) skewX(-14deg)}
+    100%{-webkit-transform:rotate(400deg) skewX(0);transform:rotate(400deg) skewX(0)}
+  }
+  @keyframes spin{
+    0%{-webkit-transform:rotate(0) skewX(0);transform:rotate(0) skewX(0)}
+    50%{-webkit-transform:rotate(200deg) skewX(-14deg);transform:rotate(200deg) skewX(-14deg)}
+    100%{-webkit-transform:rotate(400deg) skewX(0);transform:rotate(400deg) skewX(0)}
+  }
+
+  /* ================= ШАПКА ================= */
+  .hero{padding:6px 28px 46px;text-align:center}
+  .tunduk{width:186px;height:186px;margin:0 auto 20px;display:block}
+  .tunduk *{fill:none;stroke-linecap:round}
+  .ring{stroke:var(--ink)}
+  .mesh{stroke:var(--gold)}
+  .ray{stroke:var(--amber);opacity:.75}
+  
+  .draw{
+    stroke-dasharray:1400;stroke-dashoffset:1400;
+    -webkit-animation:draw 2.4s ease-out forwards;
+    animation:draw 2.4s ease-out forwards;
+  }
+  .draw.d2{-webkit-animation-delay:.4s;animation-delay:.4s}
+  .draw.d3{-webkit-animation-delay:.85s;animation-delay:.85s}
+  
+  @-webkit-keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  .fade{
+    -webkit-animation:fadein 1s cubic-bezier(.2,.75,.25,1) both;
+    animation:fadein 1s cubic-bezier(.2,.75,.25,1) both;
+  }
+  .f1{-webkit-animation-delay:1.05s;animation-delay:1.05s}
+  .f2{-webkit-animation-delay:1.3s;animation-delay:1.3s}
+  .f3{-webkit-animation-delay:1.55s;animation-delay:1.55s}
+  .f4{-webkit-animation-delay:.15s;animation-delay:.15s}
+  .f5{-webkit-animation-delay:.25s;animation-delay:.25s}
+  .f6{-webkit-animation-delay:.35s;animation-delay:.35s}
+  
+  @-webkit-keyframes fadein{from{opacity:0;-webkit-transform:translateY(16px);transform:translateY(16px)}to{opacity:1;-webkit-transform:none;transform:none}}
+  @keyframes fadein{from{opacity:0;-webkit-transform:translateY(16px);transform:translateY(16px)}to{opacity:1;-webkit-transform:none;transform:none}}
+
+  .eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  .names{font-family:var(--display);font-size:clamp(38px,11vw,62px);line-height:1.08;margin:16px 0 2px;color:var(--ink);font-weight:400;letter-spacing:-0.01em}
+  .amp{display:block;font-family:var(--hand);color:var(--garnet);font-size:.7em;line-height:1;margin:2px 0 4px;font-weight:normal}
+  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
+  .datewrap svg{width:26px;height:26px;flex:none}
+  .hero .date{
+    display:inline-block;padding:9px 4px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+  }
+
+  .orn{display:flex;justify-content:center;align-items:center;gap:10px;padding:4px 0}
+  .orn i{display:block;width:52px;height:1px;background:var(--line)}
+  .orn svg{width:54px;height:26px}
+
+  section{padding:44px 30px}
+  .h2{font-family:var(--display);font-size:28px;text-align:center;line-height:1.28;font-weight:400;letter-spacing:0.02em}
+  .lead{text-align:center;color:var(--ink-soft);max-width:45ch;margin:16px auto 0;font-size:15.5px}
+
+  /* ================= ТАЙМЕР ================= */
+  .cd{display:none;justify-content:center;gap:9px;margin-top:24px}
+  .cd.on{display:flex}
+  .cd div{
+    flex:1;max-width:92px;padding:14px 4px;background:#FFFDF7;
+    border:1px solid var(--line);border-radius:2px;box-shadow:0 6px 18px rgba(59,42,28,.07);
+  }
+  .cd b{display:block;font-family:var(--display);font-size:27px;line-height:1;color:var(--garnet);font-weight:400}
+  .cd span{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+  .cd-title{display:none}
+  .cd-title.on{display:block}
+
+  /* ================= ДЕТАЛИ ================= */
+  .facts{margin-top:26px;border-top:1px solid var(--line)}
+  .facts .row{display:grid;grid-template-columns:104px 1fr;gap:26px;padding:18px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+  .facts dt{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .facts dd{font-size:16.5px}
+  .facts dd small{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:3px}
+  .facts .big{font-family:var(--display);font-size:22px;color:var(--garnet)}
+
+  .btn{
+    display:block;text-align:center;text-decoration:none;
+    font-family:var(--body);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    padding:17px 20px;border:1px solid var(--ink);color:var(--ink);background:transparent;
+    width:100%;margin-top:14px;cursor:pointer;transition:.3s;-webkit-tap-highlight-color:transparent;
+  }
+  .btn:hover{background:var(--ink);color:#FBF5E9;-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .btn.solid{background:var(--garnet);border-color:var(--garnet);color:#FBF5E9}
+  .btn.solid:hover{background:#75232E;border-color:#75232E}
+  .btn.quiet{border-color:var(--line);color:var(--ink-soft)}
+  .btn.quiet:hover{background:transparent;border-color:var(--ink-soft);color:var(--ink)}
+
+  footer{padding:40px 30px 56px;text-align:center;position:relative;z-index:2}
+  footer .sig{font-family:var(--hand);font-size:32px;color:var(--garnet);line-height:1.3;font-weight:normal}
+  footer .sub{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
+
+  @media (max-width:420px){
+    .hero{padding:6px 20px 40px}
+    section{padding:38px 20px}
+    footer{padding:36px 20px 48px}
+    .lang{padding:12px 14px 0}
+    .facts .row{grid-template-columns:1fr;gap:9px;padding:16px 2px}
+    .facts dd{font-size:16px}
+    .cd{gap:6px}
+    .cd div{padding:12px 2px}
+    .cd b{font-size:23px}
+    .cd span{font-size:9px;letter-spacing:.1em}
+    .deco{opacity:.3}
+    .deco.b2,.deco.d,.deco.f{opacity:.26}
+    .lead{font-size:15px}
+    .h2{font-size:24px}
+    .datewrap{gap:10px}
+    .datewrap svg{width:22px;height:22px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .draw{-webkit-animation:none;animation:none;stroke-dashoffset:0}
+    .fade{-webkit-animation:none;animation:none}
+    .sway,.leaf,.leaf-wrap{-webkit-animation:none;animation:none}
+    .leaf-wrap{display:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== ОСЕННИЕ РАСТЕНИЯ ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="physalis" viewBox="0 0 130 330">
+      <g fill="none" stroke="#7B7A4E" stroke-width="3.2" stroke-linecap="round">
+        <path d="M66 330 C60 250 72 186 64 96"/>
+        <path d="M64 150 Q46 142 34 152"/><path d="M64 210 Q84 202 96 212"/>
+        <path d="M64 116 Q44 110 32 122"/><path d="M64 116 Q86 112 98 126"/>
+      </g>
+      <g fill="#8B8A57" opacity=".85">
+        <path d="M64 262 C48 248 32 250 22 262 C36 274 54 274 64 262 Z"/>
+        <path d="M64 246 C80 232 96 234 106 246 C90 258 74 258 64 246 Z"/>
+      </g>
+      <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#CE7429"/>
+      <g fill="none" stroke="#A85718" stroke-width="1.3" opacity=".5">
+        <path d="M33 126 C31 148 31 176 33 198"/><path d="M21 130 C16 152 20 180 28 197"/><path d="M45 130 C50 152 46 180 38 197"/>
+      </g>
+      <path d="M98 126 C82 132 76 152 81 172 C85 190 93 200 99 204 C106 200 115 190 118 172 C123 152 115 132 98 126 Z" fill="#DE8B34"/>
+      <g fill="none" stroke="#A85718" stroke-width="1.3" opacity=".45">
+        <path d="M99 130 C97 152 97 180 99 202"/><path d="M87 134 C82 156 86 184 94 201"/><path d="M111 134 C116 156 112 184 104 201"/>
+      </g>
+    </symbol>
+
+    <symbol id="poplar" viewBox="0 0 130 330">
+      <g fill="none" stroke="#8A6A3A" stroke-width="3" stroke-linecap="round">
+        <path d="M62 330 C58 250 68 180 62 74"/>
+      </g>
+      <g fill="none" stroke="#8A6A3A" stroke-width="1.8">
+        <path d="M62 250 L34 232"/><path d="M62 214 L92 198"/><path d="M62 178 L32 162"/>
+        <path d="M62 142 L92 128"/><path d="M62 106 L36 92"/><path d="M62 90 L86 74"/>
+      </g>
+      <g>
+        <path d="M34 232 L20 214 L28 190 L44 210 Z" fill="#C99226"/>
+        <path d="M92 198 L108 182 L102 158 L84 178 Z" fill="#D9A93A"/>
+        <path d="M32 162 L16 146 L24 122 L42 142 Z" fill="#B8862B"/>
+        <path d="M92 128 L110 114 L104 90 L86 110 Z" fill="#CE7429"/>
+        <path d="M36 92 L20 76 L30 54 L46 74 Z" fill="#D9A93A"/>
+        <path d="M86 74 L102 58 L94 36 L78 56 Z" fill="#C99226"/>
+      </g>
+    </symbol>
+
+    <symbol id="wheat" viewBox="0 0 110 330">
+      <g fill="none" stroke="#A98B4A" stroke-width="2.8" stroke-linecap="round">
+        <path d="M55 330 C52 250 58 190 55 118"/>
+      </g>
+      <g fill="#C99226">
+        <ellipse cx="55" cy="52" rx="7" ry="15"/>
+        <ellipse cx="41" cy="74" rx="7" ry="14" transform="rotate(-22 41 74)"/>
+        <ellipse cx="69" cy="74" rx="7" ry="14" transform="rotate(22 69 74)"/>
+        <ellipse cx="41" cy="96" rx="7" ry="14" transform="rotate(-22 41 96)"/>
+        <ellipse cx="69" cy="96" rx="7" ry="14" transform="rotate(22 69 96)"/>
+        <ellipse cx="42" cy="118" rx="7" ry="14" transform="rotate(-22 42 118)"/>
+        <ellipse cx="68" cy="118" rx="7" ry="14" transform="rotate(22 68 118)"/>
+      </g>
+      <g fill="none" stroke="#B8862B" stroke-width="1.2" stroke-linecap="round" opacity=".8">
+        <path d="M55 38 L55 8"/><path d="M41 60 L30 30"/><path d="M69 60 L80 30"/>
+        <path d="M41 84 L28 58"/><path d="M69 84 L82 58"/>
+      </g>
+      <g fill="#8B8A57" opacity=".8">
+        <path d="M55 216 C40 200 26 202 18 214 C32 226 48 226 55 216 Z"/>
+        <path d="M55 262 C70 246 86 248 94 260 C80 272 64 272 55 262 Z"/>
+      </g>
+    </symbol>
+
+    <symbol id="grapes" viewBox="0 0 130 330">
+      <g fill="none" stroke="#8A6A3A" stroke-width="3" stroke-linecap="round">
+        <path d="M64 330 C58 254 70 190 62 108"/>
+        <path d="M62 150 C44 142 34 152 38 164 C41 173 52 172 52 164"/>
+      </g>
+      <g fill="#9A8A46" opacity=".9">
+        <path d="M62 112 C40 100 26 76 34 54 C52 62 62 86 62 112 Z"/>
+        <path d="M62 112 C84 100 98 76 90 54 C72 62 62 86 62 112 Z"/>
+      </g>
+      <g fill="#7A2B44">
+        <circle cx="62" cy="176" r="11"/><circle cx="46" cy="192" r="11"/><circle cx="78" cy="192" r="11"/>
+        <circle cx="62" cy="206" r="11"/><circle cx="40" cy="214" r="10"/><circle cx="84" cy="214" r="10"/>
+        <circle cx="62" cy="232" r="10"/><circle cx="48" cy="240" r="9"/><circle cx="76" cy="240" r="9"/>
+        <circle cx="62" cy="258" r="9"/>
+      </g>
+      <g fill="#9E4258" opacity=".7">
+        <circle cx="58" cy="172" r="3.4"/><circle cx="42" cy="188" r="3"/><circle cx="74" cy="188" r="3"/>
+        <circle cx="58" cy="202" r="3"/><circle cx="58" cy="228" r="2.6"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sheet">
+
+  <input type="radio" name="lng" id="lng-ky" class="lng-input" checked aria-label="Кыргызча">
+  <input type="radio" name="lng" id="lng-ru" class="lng-input" aria-label="Русский">
+
+  <div class="garden" aria-hidden="true">
+    <svg class="deco a"  viewBox="0 0 265 340"><g><use href="#poplar"   class="sway"    x="0"   y="6"  width="130" height="330"/><use href="#physalis" class="sway s2" x="112" y="56" width="130" height="330"/></g></svg>
+    <svg class="deco b2" viewBox="0 0 265 340"><g><use href="#grapes"   class="sway s3" x="6"   y="36" width="130" height="330"/><use href="#poplar"   class="sway"    x="118" y="0"  width="130" height="330"/></g></svg>
+    <svg class="deco c"  viewBox="0 0 265 340"><g><use href="#physalis" class="sway s2" x="0"   y="26" width="130" height="330"/><use href="#wheat"    class="sway s3" x="120" y="66" width="110" height="330"/></g></svg>
+    <svg class="deco d"  viewBox="0 0 265 340"><g><use href="#wheat"    class="sway"    x="14"  y="66" width="110" height="330"/><use href="#grapes"   class="sway s2" x="112" y="16" width="130" height="330"/></g></svg>
+    <svg class="deco e"  viewBox="0 0 265 340"><g><use href="#poplar"   class="sway s3" x="2"   y="36" width="130" height="330"/><use href="#physalis" class="sway"    x="116" y="76" width="130" height="330"/></g></svg>
+    <svg class="deco f"  viewBox="0 0 265 340"><g><use href="#physalis" class="sway s2" x="0"   y="56" width="130" height="330"/><use href="#poplar"   class="sway"    x="112" y="26" width="130" height="330"/></g></svg>
+    <div id="leaves"></div>
+  </div>
+
+  <div class="content">
+
+    <div class="lang">
+      <label for="lng-ky">Кыр</label>
+      <label for="lng-ru">Рус</label>
+    </div>
+
+    <!-- ================= ШАПКА ================= -->
+    <header class="hero">
+      <svg class="tunduk" viewBox="0 0 200 200" aria-hidden="true">
+        <g class="ray draw d3" stroke-width="1.3">
+          <line x1="100" y1="6"   x2="100" y2="22"/><line x1="133" y1="14"  x2="127" y2="29"/>
+          <line x1="161" y1="39"  x2="150" y2="51"/><line x1="178" y1="72"  x2="163" y2="79"/>
+          <line x1="178" y1="128" x2="163" y2="121"/><line x1="161" y1="161" x2="150" y2="149"/>
+          <line x1="133" y1="186" x2="127" y2="171"/><line x1="100" y1="194" x2="100" y2="178"/>
+          <line x1="67"  y1="186" x2="73"  y2="171"/><line x1="39"  y1="161" x2="50"  y2="149"/>
+          <line x1="22"  y1="128" x2="37"  y2="121"/><line x1="22"  y1="72"  x2="37"  y2="79"/>
+          <line x1="39"  y1="39"  x2="50"  y2="51"/><line x1="67"  y1="14"  x2="73"  y2="29"/>
+        </g>
+        <circle class="ring draw" cx="100" cy="100" r="78" stroke-width="1"/>
+        <circle class="ring draw" cx="100" cy="100" r="70" stroke-width="2"/>
+        <g class="mesh draw d2" stroke-width="1.7">
+          <path d="M42 74 Q100 46 158 74"/><path d="M36 100 Q100 68 164 100"/><path d="M42 126 Q100 98 158 126"/>
+          <path d="M74 158 Q46 100 74 42"/><path d="M100 164 Q68 100 100 36"/><path d="M126 158 Q98 100 126 42"/>
+        </g>
+      </svg>
+
+      <p class="eyebrow fade f1"><span class="ky">Урматтуу конок!</span><span class="ru">Дорогой гость!</span></p>
+      <h1 class="names fade f2">Аманкул<span class="amp">&amp;</span>Айгерим</h1>
+      <div class="datewrap fade f3">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#C99226"/><path d="M20 34 L17 12" stroke="#8A6A3A" stroke-width="1.2" fill="none"/></svg>
+        <p class="date"><span class="ky">19-сентябрь · 2026-жыл</span><span class="ru">19 сентября · 2026</span></p>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#CE7429"/><path d="M20 34 L23 12" stroke="#8A6A3A" stroke-width="1.2" fill="none"/></svg>
+      </div>
+    </header>
+
+    <div class="orn">
+      <i></i>
+      <svg viewBox="0 0 60 28" aria-hidden="true">
+        <g fill="none" stroke="#B8862B" stroke-width="1.5" stroke-linecap="round">
+          <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
+        </g>
+        <circle cx="30" cy="6" r="2.4" fill="#8E2F3C"/>
+      </svg>
+      <i></i>
+    </div>
+
+    <!-- ================= ПРИВЕТСТВИЕ ================= -->
+    <section class="fade f4">
+      <h2 class="h2"><span class="ky">Кымбаттуу туугандар жана достор!</span><span class="ru">Дорогие родные и друзья!</span></h2>
+      <p class="lead">
+        <span class="ky">Биз үй-бүлө курууну чечтик. Күз — берекенин, мол түшүмдүн мезгили. Ошондуктан турмушубуздагы эң кубанычтуу күндү дал ушул кезде, сиздер менен чогуу тосууну каалайбыз.</span>
+        <span class="ru">Мы решили создать семью. Осень — время щедрости и урожая, и самый счастливый день нашей жизни нам хочется встретить именно сейчас — вместе с вами.</span>
+      </p>
+
+      <p class="eyebrow cd-title" id="cd-title" style="text-align:center;margin-top:34px">
+        <span class="ky">Тойго чейин калды</span><span class="ru">До свадьбы осталось</span>
+      </p>
+      <div class="cd" id="cd">
+        <div><b id="cd-d">0</b><span class="ky b">күн</span><span class="ru b">дней</span></div>
+        <div><b id="cd-h">0</b><span class="ky b">саат</span><span class="ru b">часов</span></div>
+        <div><b id="cd-m">0</b><span class="ky b">мүнөт</span><span class="ru b">минут</span></div>
+        <div><b id="cd-s">0</b><span class="ky b">секунд</span><span class="ru b">секунд</span></div>
+      </div>
+      
+      <script>
+      (function(){
+        // 19 сентября 2026, 10:00:00 UTC (16:00 Бишкек)
+        var TARGET = new Date(Date.UTC(2026, 8, 19, 10, 0, 0)).getTime();
+        
+        var box = document.getElementById("cd");
+        var ttl = document.getElementById("cd-title");
+        var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"),
+            m = document.getElementById("cd-m"), s = document.getElementById("cd-s");
+            
+        if (!box || !d || !h || !m || !s) return;
+        
+        function set(el, n){
+          n = "" + n;
+          if (el.firstChild) el.firstChild.nodeValue = n;
+          else el.appendChild(document.createTextNode(n));
+        }
+        
+        function upd(){
+          var now = new Date().getTime();
+          var left = TARGET - now;
+          if (left < 0 || isNaN(left)) left = 0;
+          
+          var t = Math.floor(left / 1000);
+          set(d, Math.floor(t / 86400));
+          set(h, Math.floor((t % 86400) / 3600));
+          set(m, Math.floor((t % 3600) / 60));
+          set(s, t % 60);
+        }
+        
+        upd();
+        box.className = "cd on";
+        if (ttl) ttl.className = "eyebrow cd-title on";
+        setInterval(upd, 1000);
+      })();
+      </script>
+    </section>
+
+    <!-- ================= ДЕТАЛИ ================= -->
+    <section class="fade f5">
+      <h2 class="h2"><span class="ky">Той жөнүндө</span><span class="ru">О торжестве</span></h2>
+      <dl class="facts">
+        <div class="row">
+          <dt><span class="ky">Күнү</span><span class="ru">Дата</span></dt>
+          <dd><span class="ky">19-сентябрь, 2026-жыл</span><span class="ru">19 сентября 2026 года</span>
+            <small><span class="ky">ишемби</span><span class="ru">суббота</span></small>
+          </dd>
+        </div>
+        <div class="row">
+          <dt><span class="ky">Башталышы</span><span class="ru">Начало</span></dt>
+          <dd class="big">16:00</dd>
+        </div>
+        <div class="row">
+          <dt><span class="ky">Дареги</span><span class="ru">Место</span></dt>
+          <dd>«Рим Гранд Холл»
+            <small><span class="ky">Петровка айылы, Центральная көчөсү, 133</span><span class="ru">с. Петровка, Центральная улица, 133</span></small>
+          </dd>
+        </div>
+        <div class="row">
+          <dt><span class="ky">Уюштуруучулар</span><span class="ru">Организаторы</span></dt>
+          <dd>Алмаз &amp; Ольга</dd>
+        </div>
+        <div class="row">
+          <dt><span class="ky">Кийим</span><span class="ru">Дресс-код</span></dt>
+          <dd><span class="ky">Кечки кийим</span><span class="ru">Вечерний наряд</span>
+            <small>
+              <span class="ky">күздүн түстөрүн — алтын, кызгылт, күрөң — колдосоңуз, сүрөттөр сонун чыгат</span>
+              <span class="ru">поддержите осенние цвета — золотой, гранатовый, охра — фотографии получатся чудесными</span>
+            </small>
+          </dd>
+        </div>
+      </dl>
+
+      <a class="btn b ky" target="_blank" rel="noopener"
+         href="https://2gis.kg/bishkek/search/%D1%80%D0%B8%D0%BC/firm/70000001063765710?m=74.078415%2C42.834042%2F13.97">Картадан кароо</a>
+      <a class="btn b ru" target="_blank" rel="noopener"
+         href="https://2gis.kg/bishkek/search/%D1%80%D0%B8%D0%BC/firm/70000001063765710?m=74.078415%2C42.834042%2F13.97">Посмотреть на карте</a>
+    </section>
+
+    <div class="orn">
+      <i></i>
+      <svg viewBox="0 0 60 28" aria-hidden="true">
+        <g fill="none" stroke="#B8862B" stroke-width="1.5" stroke-linecap="round">
+          <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
+        </g>
+        <circle cx="30" cy="6" r="2.4" fill="#8E2F3C"/>
+      </svg>
+      <i></i>
+    </div>
+
+    <!-- ================= ПОДТВЕРЖДЕНИЕ ================= -->
+    <section class="fade f6">
+      <h2 class="h2"><span class="ky">Катышууңузду тастыктаңыз</span><span class="ru">Подтвердите присутствие</span></h2>
+      <p class="lead">
+        <span class="ky">Оруңдарды даярдап коюшубуз үчүн 10-сентябрга чейин кабарлап коюңуздар.</span>
+        <span class="ru">Чтобы мы успели всё подготовить, дайте знать до 10 сентября.</span>
+      </p>
+
+      <a class="btn solid b ky" target="_blank" rel="noopener"
+         href="https://wa.me/996990444315?text=%D0%A1%D0%B0%D0%BB%D0%B0%D0%BC!%20%D0%A2%D0%BE%D0%B9%D0%B3%D0%BE%20%D1%81%D3%A9%D0%B7%D1%81%D2%AF%D0%B7%20%D0%B1%D0%B0%D1%80%D0%B0%D0%B1%D1%8B%D0%B7.">Сөзсүз барабыз</a>
+      <a class="btn solid b ru" target="_blank" rel="noopener"
+         href="https://wa.me/996990444315?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D1%8B%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BF%D1%80%D0%B8%D0%B4%D1%91%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D1%83.">Обязательно придём</a>
+
+      <a class="btn quiet b ky" target="_blank" rel="noopener"
+         href="https://wa.me/996990444315?text=%D0%A1%D0%B0%D0%BB%D0%B0%D0%BC!%20%D0%A2%D0%B8%D0%BB%D0%B5%D0%BA%D0%BA%D0%B0%20%D0%BA%D0%B0%D1%80%D1%88%D1%8B%2C%20%D1%82%D0%BE%D0%B9%D0%B3%D0%BE%20%D0%B1%D0%B0%D1%80%D0%B0%20%D0%B0%D0%BB%D0%B1%D0%B0%D0%B9%D0%B1%D1%8B%D0%B7.">Тилекке каршы, бара албайбыз</a>
+      <a class="btn quiet b ru" target="_blank" rel="noopener"
+         href="https://wa.me/996990444315?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9A%20%D1%81%D0%BE%D0%B6%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D1%8E%2C%20%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D1%81%D0%BC%D0%BE%D0%B6%D0%B5%D0%BC%20%D0%BF%D1%80%D0%B8%D0%B9%D1%82%D0%B8.">К сожалению, не сможем</a>
+    </section>
+
+    <footer>
+      <p class="sig"><span class="ky">Сиздерди чын жүрөктөн күтөбүз!</span><span class="ru">Будем искренне рады видеть вас!</span></p>
+      <p class="sub">Аманкул &amp; Айгерим · 19.09.2026</p>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  const box=document.getElementById('leaves');
+  const sheet=document.querySelector('.sheet');
+  if(!box||!sheet) return;
+
+  box.style.position='absolute';
+  box.style.inset='0';
+  box.style.overflow='hidden';
+  box.style.zIndex='1';
+  box.style.pointerEvents='none';
+
+  function makeLeaf(){
+    const el=document.createElement('div');
+    el.textContent=Math.random()>0.5?'🍂':'🍁';
+    el.style.position='absolute';
+    el.style.fontSize=(16+Math.random()*12)+'px';
+    el.style.left=(Math.random()*(sheet.clientWidth-30))+'px';
+    el.style.top='-40px';
+    el.style.opacity=0.55+Math.random()*0.25;
+    box.appendChild(el);
+
+    let x=parseFloat(el.style.left);
+    let y=-40;
+    let vx=(Math.random()-0.5)*0.25;
+    let vy=0.7+Math.random()*1.0;
+    let rot=Math.random()*360;
+
+    function step(){
+      y+=vy;
+      x+=Math.sin(y/40)*0.25+vx;
+      rot+=1.6;
+      el.style.transform=translate(${x}px,${y}px) rotate(${rot}deg);
+      if(y<sheet.clientHeight+50){
+        requestAnimationFrame(step);
+      }else{
+        el.remove();
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  for(let i=0;i<10;i++) setTimeout(makeLeaf,i*500);
+  setInterval(makeLeaf,1200);
+});
+</script>
+</body>
+</html>
