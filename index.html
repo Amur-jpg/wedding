@@ -7,20 +7,22 @@
 <meta name="description" content="Аманкул жана Айгеримдин үйлөнүү тоюна чакыруу / Приглашение на свадьбу Аманкула и Айгерим">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prata&family=Marck+Script&family=Manrope:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heather+Script+Two&family=Manrope:wght@200;300;400;600&family=Prata&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --paper:#EDE2CE;
-    --card:#FBF5E9;
-    --card-2:#F3E8D4;
+    /* Обновленная осенняя палитра фона */
+    --paper:#E8D8C3;
+    --card:#F7EFE2;
+    --card-2:#EEDFCA;
     --ink:#3B2A1C;
-    --ink-soft:#7C6753;
+    --ink-soft:#6E5643;
     --gold:#B8862B;
     --garnet:#8E2F3C;
     --amber:#CE7429;
-    --line:rgba(59,42,28,.16);
+    --line:rgba(59,42,28,.18);
     --display:'Prata', 'Times New Roman', serif;
-    --hand:'Marck Script', cursive;
+    --hand:'Heather Script Two', 'Marck Script', cursive;
     --body:'Manrope', -apple-system, 'Segoe UI', sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -32,8 +34,8 @@
   }
   .sheet{
     max-width:640px;margin:0 auto;position:relative;overflow:hidden;
-    background:radial-gradient(88% 42% at 50% 0%, #FFFDF7 0%, var(--card) 42%, var(--card-2) 100%);
-    box-shadow:0 0 70px rgba(59,42,28,.16);
+    background:radial-gradient(88% 42% at 50% 0%, #FFF9EE 0%, var(--card) 45%, var(--card-2) 100%);
+    box-shadow:0 0 70px rgba(59,42,28,.2);
   }
   .content{position:relative;z-index:2}
 
@@ -47,7 +49,7 @@
   .lang{position:sticky;top:0;z-index:30;display:flex;justify-content:flex-end;padding:14px 20px 0}
   .lang label{
     font-family:var(--body);font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;
-    background:rgba(255,253,247,.8);border:1px solid var(--line);color:var(--ink-soft);
+    background:rgba(247,239,226,.85);border:1px solid var(--line);color:var(--ink-soft);
     padding:9px 15px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
     -webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;
   }
@@ -56,7 +58,7 @@
   #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--garnet);border-color:var(--garnet);color:#FBF5E9}
   .lng-input:focus-visible ~ .content .lang label{outline:2px solid var(--gold);outline-offset:2px}
 
-  /* ================= ОСЕННИЙ ФОН ================= */
+  /* ================= ОСЕННИЙ ФОН И АНИМАЦИИ ================= */
   .garden{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
   .deco{position:absolute;opacity:.52}
   .deco.a{top:1%;left:-58px;width:215px}
@@ -66,22 +68,57 @@
   .deco.e{bottom:-1%;left:-42px;width:195px;opacity:.5}
   .deco.f{bottom:2%;right:-60px;width:220px;opacity:.44}
 
-  .sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 10s ease-in-out infinite alternate}
-  .sway.s2{animation-duration:12.5s;animation-delay:-3s}
-  .sway.s3{animation-duration:14s;animation-delay:-7s}
+  .sway{-webkit-transform-box:fill-box;transform-box:fill-box;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;-webkit-animation:sway 10s ease-in-out infinite alternate;animation:sway 10s ease-in-out infinite alternate}
+  .sway.s2{-webkit-animation-duration:12.5s;animation-duration:12.5s;-webkit-animation-delay:-3s;animation-delay:-3s}
+  .sway.s3{-webkit-animation-duration:14s;animation-duration:14s;-webkit-animation-delay:-7s;animation-delay:-7s}
+  
+  @-webkit-keyframes sway{from{-webkit-transform:rotate(-2.4deg)}to{-webkit-transform:rotate(2.4deg)}}
   @keyframes sway{from{transform:rotate(-2.4deg)}to{transform:rotate(2.4deg)}}
 
-  .leaf-wrap{position:absolute;top:-50px;animation:fall linear infinite}
-  .leaf{width:14px;height:14px;border-radius:0 68% 0 68%;animation:spin linear infinite;opacity:.55}
+  /* Фикс для iOS Safari (листья) */
+  #leaves{position:absolute;inset:0;pointer-events:none;overflow:hidden;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+  
+  .leaf-wrap{
+    position:absolute;
+    top:-50px;
+    will-change:transform;
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+    -webkit-animation:fall linear infinite;
+    animation:fall linear infinite;
+  }
+  .leaf{
+    width:14px;
+    height:14px;
+    border-radius:0 68% 0 68%;
+    will-change:transform;
+    -webkit-animation:spin linear infinite;
+    animation:spin linear infinite;
+    opacity:.6;
+  }
+
+  @-webkit-keyframes fall{
+    0%{-webkit-transform:translate3d(0,-50px,0);opacity:0}
+    10%{opacity:1}
+    90%{opacity:.9}
+    100%{-webkit-transform:translate3d(70px,115vh,0);opacity:0}
+  }
   @keyframes fall{
     0%{transform:translate3d(0,-50px,0);opacity:0}
-    10%{opacity:1}90%{opacity:.9}
-    100%{transform:translate3d(70px,112vh,0);opacity:0}
+    10%{opacity:1}
+    90%{opacity:.9}
+    100%{transform:translate3d(70px,115vh,0);opacity:0}
+  }
+
+  @-webkit-keyframes spin{
+    0%{-webkit-transform:rotate(0deg) rotateY(0deg)}
+    50%{-webkit-transform:rotate(200deg) rotateY(180deg)}
+    100%{-webkit-transform:rotate(400deg) rotateY(360deg)}
   }
   @keyframes spin{
-    0%{transform:rotate(0) skewX(0)}
-    50%{transform:rotate(200deg) skewX(-14deg)}
-    100%{transform:rotate(400deg) skewX(0)}
+    0%{transform:rotate(0deg) rotateY(0deg)}
+    50%{transform:rotate(200deg) rotateY(180deg)}
+    100%{transform:rotate(400deg) rotateY(360deg)}
   }
 
   /* ================= ШАПКА ================= */
@@ -91,24 +128,27 @@
   .ring{stroke:var(--ink)}
   .mesh{stroke:var(--gold)}
   .ray{stroke:var(--amber);opacity:.75}
-  .draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.4s ease-out forwards}
-  .draw.d2{animation-delay:.4s}
-  .draw.d3{animation-delay:.85s}
+  .draw{stroke-dasharray:1400;stroke-dashoffset:1400;-webkit-animation:draw 2.4s ease-out forwards;animation:draw 2.4s ease-out forwards}
+  .draw.d2{-webkit-animation-delay:.4s;animation-delay:.4s}
+  .draw.d3{-webkit-animation-delay:.85s;animation-delay:.85s}
+  
+  @-webkit-keyframes draw{to{stroke-dashoffset:0}}
   @keyframes draw{to{stroke-dashoffset:0}}
 
-  /* появление — чистый CSS, содержимое не зависит от скрипта */
-  .fade{animation:fadein 1s cubic-bezier(.2,.75,.25,1) both}
-  .f1{animation-delay:1.05s}
-  .f2{animation-delay:1.3s}
-  .f3{animation-delay:1.55s}
-  .f4{animation-delay:.15s}
-  .f5{animation-delay:.25s}
-  .f6{animation-delay:.35s}
+  .fade{-webkit-animation:fadein 1s cubic-bezier(.2,.75,.25,1) both;animation:fadein 1s cubic-bezier(.2,.75,.25,1) both}
+  .f1{-webkit-animation-delay:1.05s;animation-delay:1.05s}
+  .f2{-webkit-animation-delay:1.3s;animation-delay:1.3s}
+  .f3{-webkit-animation-delay:1.55s;animation-delay:1.55s}
+  .f4{-webkit-animation-delay:.15s;animation-delay:.15s}
+  .f5{-webkit-animation-delay:.25s;animation-delay:.25s}
+  .f6{-webkit-animation-delay:.35s;animation-delay:.35s}
+  
+  @-webkit-keyframes fadein{from{opacity:0;-webkit-transform:translateY(16px)}to{opacity:1;-webkit-transform:none}}
   @keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
   .eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
-  .names{font-family:var(--display);font-size:clamp(40px,12vw,64px);line-height:1.06;margin:16px 0 2px;color:var(--ink)}
-  .amp{display:block;font-family:var(--hand);color:var(--garnet);font-size:.66em;line-height:1;margin:2px 0 4px}
+  .names{font-family:var(--hand);font-size:clamp(46px,14vw,76px);line-height:1.1;margin:12px 0 2px;color:var(--ink);font-weight:normal}
+  .amp{display:block;font-family:var(--hand);color:var(--garnet);font-size:.7em;line-height:.8;margin:4px 0}
   .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
   .datewrap svg{width:26px;height:26px;flex:none}
   .hero .date{
@@ -129,7 +169,7 @@
   .cd{display:none;justify-content:center;gap:9px;margin-top:24px}
   .cd.on{display:flex}
   .cd div{
-    flex:1;max-width:92px;padding:14px 4px;background:#FFFDF7;
+    flex:1;max-width:92px;padding:14px 4px;background:#FFF9EE;
     border:1px solid var(--line);border-radius:2px;box-shadow:0 6px 18px rgba(59,42,28,.07);
   }
   .cd b{display:block;font-family:var(--display);font-size:27px;line-height:1;color:var(--garnet)}
@@ -159,7 +199,7 @@
   .btn.quiet:hover{background:transparent;border-color:var(--ink-soft);color:var(--ink)}
 
   footer{padding:40px 30px 56px;text-align:center;position:relative;z-index:2}
-  footer .sig{font-family:var(--hand);font-size:30px;color:var(--garnet);line-height:1.3}
+  footer .sig{font-family:var(--hand);font-size:36px;color:var(--garnet);line-height:1.2;font-weight:normal}
   footer .sub{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
 
   @media (max-width:420px){
@@ -185,14 +225,14 @@
     .draw{animation:none;stroke-dashoffset:0}
     .fade{animation:none}
     .sway,.leaf,.leaf-wrap{animation:none}
-    .leaf-wrap{display:none}
+    #leaves{display:none}
     html{scroll-behavior:auto}
   }
 </style>
 </head>
 <body>
 
-<!-- ====== ОСЕННИЕ РАСТЕНИЯ: физалис, тополь, колос, виноград ====== -->
+<!-- ====== ОСЕННИЕ РАСТЕНИЯ ====== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="physalis" viewBox="0 0 130 330">
@@ -359,10 +399,6 @@
         <div><b id="cd-s">0</b><span class="ky b">секунд</span><span class="ru b">секунд</span></div>
       </div>
       <script>
-      /* Отсчёт. Живёт отдельно от остального кода: если что-то сломается,
-         блок просто не появится, а приглашение останется целым.
-         TARGET — 19.09.2026, 16:00 по Бишкеку. Пересчитать можно так:
-         Date.UTC(год, месяц-1, день, час-6, минуты, 0)                     */
       (function(){
         var TARGET = 1789812000000;
         var box = document.getElementById("cd");
@@ -452,7 +488,6 @@
         <span class="ru">Чтобы мы успели всё подготовить, дайте знать до 10 сентября.</span>
       </p>
 
-      <!-- НОМЕР WHATSAPP: 996990444315 — встречается в четырёх ссылках ниже -->
       <a class="btn solid b ky" target="_blank" rel="noopener"
          href="https://wa.me/996990444315?text=%D0%A1%D0%B0%D0%BB%D0%B0%D0%BC!%20%D0%A2%D0%BE%D0%B9%D0%B3%D0%BE%20%D1%81%D3%A9%D0%B7%D1%81%D2%AF%D0%B7%20%D0%B1%D0%B0%D1%80%D0%B0%D0%B1%D1%8B%D0%B7.">Сөзсүз барабыз</a>
       <a class="btn solid b ru" target="_blank" rel="noopener"
@@ -473,28 +508,38 @@
 </div>
 
 <script>
-/* Только украшение: падающие листья. Ошибки здесь ни на что не влияют. */
+/* Оптимизированный генератор падающих листьев с полной поддержкой iOS */
 (function(){
   try{
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var box = document.getElementById("leaves");
     if (!box) return;
+    
     var colors = ["#C99226", "#CE7429", "#8E2F3C", "#D9A93A", "#A85718"];
-    for (var i = 0; i < 14; i++){
+    
+    for (var i = 0; i < 16; i++){
       var w = document.createElement("div");
       w.className = "leaf-wrap";
-      w.style.left = (Math.random() * 94) + "%";
-      var dur = (17 + Math.random() * 17) + "s", del = (-Math.random() * 30) + "s";
-      w.style.animationDuration = dur; w.style.webkitAnimationDuration = dur;
-      w.style.animationDelay = del;    w.style.webkitAnimationDelay = del;
+      w.style.left = (Math.random() * 92 + 2) + "%";
+      
+      var dur = (14 + Math.random() * 12) + "s";
+      var del = (-Math.random() * 25) + "s";
+      
+      w.style.webkitAnimationDuration = dur;
+      w.style.animationDuration = dur;
+      w.style.webkitAnimationDelay = del;
+      w.style.animationDelay = del;
 
       var l = document.createElement("div");
       l.className = "leaf";
-      var size = (9 + Math.round(Math.random() * 9)) + "px";
-      l.style.width = size; l.style.height = size;
+      var size = (9 + Math.round(Math.random() * 8)) + "px";
+      l.style.width = size; 
+      l.style.height = size;
       l.style.background = colors[i % colors.length];
+      
       var sd = (3 + Math.random() * 4) + "s";
-      l.style.animationDuration = sd; l.style.webkitAnimationDuration = sd;
+      l.style.webkitAnimationDuration = sd;
+      l.style.animationDuration = sd;
 
       w.appendChild(l);
       box.appendChild(w);
@@ -502,5 +547,7 @@
   }catch(e){}
 })();
 </script>
+</body>
+</html>
 </body>
 </html>
