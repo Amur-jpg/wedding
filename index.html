@@ -7,39 +7,38 @@
 <meta name="description" content="Аманкул жана Айгеримдин үйлөнүү тоюна чакыруу / Приглашение на свадьбу Аманкула и Айгерим">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    /* Мягкая, элегантная осенняя палитра */
-    --paper: #FDFBF7;        /* Мягкий молочно-кремовый цвет страницы */
-    --card-bg: #FAF5EE;      /* Тёплый бежевый фон карточек */
-    --border-warm: #D9A05B;  /* Золотисто-янтарный акцент */
+    /* Светлая, теплая осенняя палитра */
+    --paper: #FAF6F0;        /* Теплый кремово-молочный фон */
+    --card-bg: #F4ECE1;      /* Фон карточек */
+    --border-warm: #D0A776;  /* Мягкое золото */
     
-    --ink: #2C1A12;          /* Глубокий тёмно-коричневый (вместо тёмно-серого) */
-    --ink-soft: #634739;     /* Тёплый ореховый цвет для подзаголовков */
-    --terracotta: #A8492A;   /* Сочный терракотовый цвет как на осенних листьях */
-    --garnet: #7D2319;       /* Глубокий винно-бордовый акцент */
-    --line: rgba(168, 73, 42, 0.2);
+    --ink: #22140C;          /* Глубокий темно-коричневый */
+    --ink-soft: #5C4335;     /* Ореховый */
+    --terracotta: #A8492A;   /* Терракот */
+    --garnet: #7D2319;       /* Винно-бордовый акцент */
+    --line: rgba(125, 35, 25, 0.18);
     
-    --serif-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --serif-display: 'Playfair Display', Georgia, serif;
     --serif-body: 'Cormorant Garamond', Georgia, serif;
     --body: 'Manrope', -apple-system, sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    background: #1F130D; overflow-x:hidden; color:var(--ink);
+    background: #180D08; overflow-x:hidden; color:var(--ink);
     font-family:var(--body); font-weight:300; line-height:1.68;
     -webkit-font-smoothing:antialiased;
   }
   .sheet{
-    max-width:640px; margin:0 auto; position:relative; overflow:hidden;
+    max-width:600px; margin:0 auto; position:relative; overflow:hidden;
     background: var(--paper);
-    /* Тонкая рамка и тень в стиле изысканной открытки */
     border-left: 1px solid var(--border-warm);
     border-right: 1px solid var(--border-warm);
-    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
     min-height: 100vh;
   }
   .content{position:relative;z-index:2}
@@ -54,16 +53,16 @@
   .lang{position:sticky;top:0;z-index:30;display:flex;justify-content:flex-end;padding:14px 20px 0}
   .lang label{
     font-family:var(--body);font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;
-    background:rgba(253, 251, 247, 0.85);border:1px solid var(--line);color:var(--ink-soft);
-    padding:8px 14px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    background:rgba(250, 246, 240, 0.9);border:1px solid var(--border-warm);color:var(--ink-soft);
+    padding:7px 14px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
     -webkit-tap-highlight-color:transparent;user-select:none; border-radius: 20px;
   }
   #lng-ky:checked ~ .content .lang label[for="lng-ky"],
-  #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--terracotta);border-color:var(--terracotta);color:#FFFDF9}
+  #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--garnet);border-color:var(--garnet);color:#FFFDF9}
 
   /* ================= РАСТЕНИЯ НА ФОНЕ ================= */
   .garden{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-  .deco{position:absolute;opacity:.65}
+  .deco{position:absolute;opacity:.7}
   .deco.a{top:1%;left:-58px;width:215px}
   .deco.b2{top:17%;right:-66px;width:245px}
   .deco.c{top:41%;left:-66px;width:235px}
@@ -78,7 +77,7 @@
 
   #leaves{position:absolute;inset:0;pointer-events:none;overflow:hidden;transform-style:preserve-3d}
   .leaf-wrap{position:absolute;top:-50px;will-change:transform;animation:fall linear infinite}
-  .leaf{width:14px;height:14px;border-radius:0 68% 0 68%;will-change:transform;animation:spin linear infinite;opacity:.75}
+  .leaf{width:12px;height:12px;border-radius:0 68% 0 68%;will-change:transform;animation:spin linear infinite;opacity:.7}
 
   @keyframes fall{
     0%{transform:translate3d(0,-50px,0);opacity:0}
@@ -93,97 +92,96 @@
   }
 
   /* ================= ШАПКА И ИМЕНА ================= */
-  .hero{padding:24px 28px 40px;text-align:center}
-  .tunduk{width:160px;height:160px;margin:0 auto 20px;display:block}
+  .hero{padding:20px 24px 36px;text-align:center}
+  .tunduk{width:150px;height:150px;margin:0 auto 18px;display:block}
   .tunduk *{fill:none;stroke-linecap:round}
-  .ring{stroke:var(--terracotta)}
-  .mesh{stroke:var(--border-warm)}
-  .ray{stroke:var(--terracotta);opacity:.8}
+  .ring{stroke:var(--border-warm)}
+  .mesh{stroke:var(--terracotta)}
+  .ray{stroke:var(--border-warm);opacity:.8}
 
-  .eyebrow{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
+  .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--garnet);font-weight:600}
   
-  /* ЭЛЕГАНТНОЕ ОФОРМЛЕНИЕ ИМЕН */
+  /* ИМЕНА */
   .names-block {
-    margin: 22px 0 16px;
+    margin: 20px 0 14px;
   }
   .name-item {
     font-family: var(--serif-display);
-    font-size: clamp(36px, 9vw, 54px);
+    font-size: clamp(34px, 8vw, 48px);
     line-height: 1.15;
     color: var(--ink);
     font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
     display: block;
   }
   .amp-symbol {
     display: block;
     font-family: var(--serif-body);
     font-style: italic;
-    color: var(--terracotta);
-    font-size: 32px;
+    color: var(--garnet);
+    font-size: 30px;
     line-height: 1;
-    margin: 6px 0;
+    margin: 4px 0;
     font-weight: 400;
   }
   
-  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
+  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
   .datewrap svg{width:22px;height:22px;flex:none}
   .hero .date{
     display:inline-block;padding:8px 16px;
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);font-weight:600;
+    font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);font-weight:600;
   }
 
   .orn{display:flex;justify-content:center;align-items:center;gap:10px;padding:4px 0}
   .orn i{display:block;width:52px;height:1px;background:var(--line)}
   .orn svg{width:54px;height:26px}
 
-  section{padding:40px 30px}
-  .h2{font-family:var(--serif-display);font-size:25px;text-align:center;line-height:1.3;color:var(--ink);font-weight:500}
-  .lead{text-align:center;color:var(--ink-soft);max-width:46ch;margin:16px auto 0;font-size:15.5px;font-weight:400}
+  section{padding:36px 26px}
+  .h2{font-family:var(--serif-display);font-size:24px;text-align:center;line-height:1.3;color:var(--ink);font-weight:500}
+  .lead{text-align:center;color:var(--ink-soft);max-width:46ch;margin:14px auto 0;font-size:15px;font-weight:400}
 
   /* ================= ТАЙМЕР ================= */
-  .cd{display:none;justify-content:center;gap:10px;margin-top:24px}
+  .cd{display:none;justify-content:center;gap:10px;margin-top:22px}
   .cd.on{display:flex}
   .cd div{
-    flex:1;max-width:88px;padding:14px 4px;background:var(--card-bg);
-    border:1px solid var(--line);border-radius:6px;box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    flex:1;max-width:84px;padding:12px 4px;background:var(--card-bg);
+    border:1px solid var(--border-warm);border-radius:6px;
   }
-  .cd b{display:block;font-family:var(--serif-display);font-size:26px;line-height:1;color:var(--terracotta)}
-  .cd span{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:600}
+  .cd b{display:block;font-family:var(--serif-display);font-size:24px;line-height:1;color:var(--garnet)}
+  .cd span{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:600}
   .cd-title{display:none}
   .cd-title.on{display:block}
 
   /* ================= ДЕТАЛИ ================= */
-  .facts{margin-top:24px;border-top:1px solid var(--line)}
-  .facts .row{display:grid;grid-template-columns:104px 1fr;gap:20px;padding:18px 2px;border-bottom:1px solid var(--line);align-items:baseline}
-  .facts dt{font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:var(--terracotta);font-weight:600}
-  .facts dd{font-size:16px;color:var(--ink)}
-  .facts dd small{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:4px}
-  .facts .big{font-family:var(--serif-display);font-size:23px;color:var(--terracotta);font-weight:600}
+  .facts{margin-top:22px;border-top:1px solid var(--line)}
+  .facts .row{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:16px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+  .facts dt{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--garnet);font-weight:600}
+  .facts dd{font-size:15.5px;color:var(--ink)}
+  .facts dd small{display:block;color:var(--ink-soft);font-size:13px;margin-top:3px}
+  .facts .big{font-family:var(--serif-display);font-size:22px;color:var(--garnet);font-weight:600}
 
   .btn{
     display:block;text-align:center;text-decoration:none;
-    font-family:var(--body);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-    padding:16px 20px;border:1px solid var(--terracotta);color:var(--terracotta);background:transparent;
-    width:100%;margin-top:14px;cursor:pointer;transition:.3s;border-radius:4px;
+    font-family:var(--body);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    padding:15px 18px;border:1px solid var(--garnet);color:var(--garnet);background:transparent;
+    width:100%;margin-top:12px;cursor:pointer;transition:.3s;border-radius:4px;
   }
-  .btn:hover{background:var(--terracotta);color:#FFFDF9}
-  .btn.solid{background:var(--terracotta);border-color:var(--terracotta);color:#FFFDF9}
-  .btn.solid:hover{background:var(--garnet);border-color:var(--garnet)}
+  .btn:hover{background:var(--garnet);color:#FFFDF9}
+  .btn.solid{background:var(--garnet);border-color:var(--garnet);color:#FFFDF9}
+  .btn.solid:hover{background:#58160F;border-color:#58160F}
   .btn.quiet{border-color:var(--line);color:var(--ink-soft)}
   .btn.quiet:hover{border-color:var(--ink-soft);color:var(--ink)}
 
-  footer{padding:36px 30px 48px;text-align:center;position:relative;z-index:2}
-  footer .sig{font-family:var(--serif-body);font-size:28px;color:var(--terracotta);line-height:1.3;font-style:italic}
-  footer .sub{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;font-weight:600}
+  footer{padding:32px 24px 44px;text-align:center;position:relative;z-index:2}
+  footer .sig{font-family:var(--serif-body);font-size:26px;color:var(--garnet);line-height:1.3;font-style:italic}
+  footer .sub{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;font-weight:600}
 
   @media (max-width:420px){
-    .hero{padding:16px 20px 32px}
-    section{padding:32px 20px}
-    .facts .row{grid-template-columns:1fr;gap:6px}
-    .name-item { font-size: 36px; }
+    .hero{padding:14px 18px 28px}
+    section{padding:28px 18px}
+    .facts .row{grid-template-columns:1fr;gap:4px}
+    .name-item { font-size: 34px; }
   }
 </style>
 </head>
@@ -193,12 +191,12 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="physalis" viewBox="0 0 130 330">
-      <g fill="none" stroke="#7A6844" stroke-width="3.2" stroke-linecap="round">
+      <g fill="none" stroke="#8C6339" stroke-width="3" stroke-linecap="round">
         <path d="M66 330 C60 250 72 186 64 96"/>
         <path d="M64 150 Q46 142 34 152"/><path d="M64 210 Q84 202 96 212"/>
       </g>
       <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#A8492A"/>
-      <path d="M98 126 C82 132 76 152 81 172 C85 190 93 200 99 204 C106 200 115 190 118 172 C123 152 115 132 98 126 Z" fill="#D9A05B"/>
+      <path d="M98 126 C82 132 76 152 81 172 C85 190 93 200 99 204 C106 200 115 190 118 172 C123 152 115 132 98 126 Z" fill="#D0A776"/>
     </symbol>
 
     <symbol id="poplar" viewBox="0 0 130 330">
@@ -207,17 +205,17 @@
       </g>
       <g>
         <path d="M34 232 L20 214 L28 190 L44 210 Z" fill="#A8492A"/>
-        <path d="M92 198 L108 182 L102 158 L84 178 Z" fill="#D9A05B"/>
+        <path d="M92 198 L108 182 L102 158 L84 178 Z" fill="#D0A776"/>
         <path d="M32 162 L16 146 L24 122 L42 142 Z" fill="#A8492A"/>
-        <path d="M92 128 L110 114 L104 90 L86 110 Z" fill="#D9A05B"/>
+        <path d="M92 128 L110 114 L104 90 L86 110 Z" fill="#D0A776"/>
       </g>
     </symbol>
 
     <symbol id="wheat" viewBox="0 0 110 330">
-      <g fill="none" stroke="#997B3A" stroke-width="2.8" stroke-linecap="round">
+      <g fill="none" stroke="#8C6339" stroke-width="2.6" stroke-linecap="round">
         <path d="M55 330 C52 250 58 190 55 118"/>
       </g>
-      <g fill="#D9A05B">
+      <g fill="#D0A776">
         <ellipse cx="55" cy="52" rx="7" ry="15"/>
         <ellipse cx="41" cy="74" rx="7" ry="14" transform="rotate(-22 41 74)"/>
         <ellipse cx="69" cy="74" rx="7" ry="14" transform="rotate(22 69 74)"/>
@@ -292,7 +290,7 @@
       <div class="datewrap">
         <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#A8492A"/><path d="M20 34 L17 12" stroke="#8C6339" stroke-width="1.2" fill="none"/></svg>
         <p class="date"><span class="ky">19-сентябрь · 2026-жыл</span><span class="ru">19 сентября · 2026</span></p>
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#D9A05B"/><path d="M20 34 L23 12" stroke="#8C6339" stroke-width="1.2" fill="none"/></svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#D0A776"/><path d="M20 34 L23 12" stroke="#8C6339" stroke-width="1.2" fill="none"/></svg>
       </div>
     </header>
 
@@ -315,7 +313,7 @@
         <span class="ru">Мы решили создать семью. Осень — время щедрости и урожая, и самый счастливый день нашей жизни нам хочется встретить именно сейчас — вместе с вами.</span>
       </p>
 
-      <p class="eyebrow cd-title" id="cd-title" style="text-align:center;margin-top:34px">
+      <p class="eyebrow cd-title" id="cd-title" style="text-align:center;margin-top:30px">
         <span class="ky">Тойго чейин калды</span><span class="ru">До свадьбы осталось</span>
       </p>
       <div class="cd" id="cd">
@@ -420,7 +418,7 @@
          href="https://wa.me/996990444315?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D1%8B%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BF%D1%80%D0%B8%D0%B4%D1%91%D0%BC%20%D0%BD%D0%B0%20%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D1%83.">Обязательно придём</a>
 
       <a class="btn quiet b ky" target="_blank" rel="noopener"
-         href="https://wa.me/996990444315?text=%D0%A1%D0%B0%D0%BB%D0%B0%D0%BC!%20%D0%A2%D0%B8%D0%BB%D0%B5%D0%BA%D0%BA%D0%B5%20%D0%BA%D0%B0%D1%80%D1%88%D1%8B%2C%20%D1%82%D0%BE%D0%B9%D0%B3%D0%BE%20%D0%B1%D0%B0%D1%80%D0%B0%20%D0%B0%D0%BB%D0%B1%D0%B0%D0%B9%D0%B1%D1%8B%D0%B7.">Тилекке каршы, бара албайбыз</a>
+         href="https://wa.me/996990444315?text=%D0%A1%D0%B0%D0%BB%D0%B0%D0%BC!%20%D0%A2%D0%B8%D0%BB%D0%B5%D0%BA%D0%BA%D0%B0%20%D0%BA%D0%B0%D1%80%D1%88%D1%8B%2C%20%D1%82%D0%BE%D0%B9%D0%B3%D0%BE%20%D0%B1%D0%B0%D1%80%D0%B0%20%D0%B0%D0%BB%D0%B1%D0%B0%D0%B9%D0%B1%D1%8B%D0%B7.">Тилекке каршы, бара албайбыз</a>
       <a class="btn quiet b ru" target="_blank" rel="noopener"
          href="https://wa.me/996990444315?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9A%20%D1%81%D0%BE%D0%B6%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D1%8E%2C%20%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D1%81%D0%BC%D0%BE%D0%B6%D0%B5%D0%BC%20%D0%BF%D1%80%D0%B8%D0%B9%D1%82%D0%B8.">К сожалению, не сможем</a>
     </section>
@@ -440,7 +438,7 @@
     var box = document.getElementById("leaves");
     if (!box) return;
     
-    var colors = ["#A8492A", "#D9A05B", "#7D2319", "#8C6339"];
+    var colors = ["#A8492A", "#D0A776", "#7D2319", "#8C6339"];
     
     for (var i = 0; i < 14; i++){
       var w = document.createElement("div");
@@ -455,7 +453,7 @@
 
       var l = document.createElement("div");
       l.className = "leaf";
-      var size = (9 + Math.round(Math.random() * 8)) + "px";
+      var size = (8 + Math.round(Math.random() * 6)) + "px";
       l.style.width = size; 
       l.style.height = size;
       l.style.background = colors[i % colors.length];
