@@ -7,22 +7,21 @@
 <meta name="description" content="Аманкул жана Айгеримдин үйлөнүү тоюна чакыруу / Приглашение на свадьбу Аманкула и Айгерим">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope:wght@300;400;600&family=Marck+Script&display=swap&subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Manrope:wght@300;400;600&display=swap&subset=cyrillic" rel="stylesheet">
 
 <style>
   :root{
-    --paper:#0a0506;
-    --card:#180a0d;
-    --card-2:#2a080c;
-    --ink:#fce8eb;
-    --ink-soft:#d8aab1;
-    --gold:#e6c687;
-    --garnet:#b81d33;
-    --garnet-glow:#ff2a4b;
-    --line:rgba(216,170,177,.2);
-    --display:'Great Vibes', 'Marck Script', cursive;
-    --hand:'Marck Script', cursive;
-    --body:'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --paper:#0d0a0b;
+    --card:#180d0f;
+    --red-sky:#cc0d1e;
+    --red-glow:#e6001a;
+    --crimson:#80000a;
+    --ink:#f3f4f6;
+    --ink-soft:#a3a8b4;
+    --steel:#94a3b8;
+    --line:rgba(230, 0, 26, 0.25);
+    --display:'Great Vibes', cursive;
+    --body:'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -30,13 +29,12 @@
     background:var(--paper);overflow-x:hidden;color:var(--ink);
     font-family:var(--body);font-weight:300;line-height:1.68;
     -webkit-font-smoothing:antialiased;
-    -webkit-text-size-adjust:100%;
   }
   .sheet{
     max-width:640px;margin:0 auto;position:relative;overflow:hidden;
-    background:radial-gradient(circle at 50% 0%, #3d0810 0%, var(--card) 50%, #050203 100%);
-    box-shadow:0 0 80px rgba(184,29,51,.3);
-    border: 1px solid rgba(184,29,51,.2);
+    background: linear-gradient(180deg, #590209 0%, #1c0508 35%, #0e0d10 75%, #181d22 100%);
+    box-shadow:0 0 100px rgba(230,0,26,.35);
+    border: 1px solid rgba(204,13,30,.3);
   }
   .content{position:relative;z-index:2}
 
@@ -50,23 +48,21 @@
   .lang{position:sticky;top:0;z-index:30;display:flex;justify-content:flex-end;padding:14px 20px 0}
   .lang label{
     font-family:var(--body);font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;
-    background:rgba(24,10,13,.85);border:1px solid var(--line);color:var(--ink-soft);
+    background:rgba(14,13,16,.85);border:1px solid var(--line);color:var(--ink-soft);
     padding:9px 15px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-    -webkit-tap-highlight-color:transparent;user-select:none;
+    user-select:none;
   }
   .lang label:first-of-type{border-right:none}
   #lng-ky:checked ~ .content .lang label[for="lng-ky"],
-  #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--garnet);border-color:var(--garnet);color:#fff}
+  #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--red-sky);border-color:var(--red-sky);color:#fff}
 
   /* ================= ФОН И ДЕКОР ================= */
   .garden{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-  .deco{position:absolute;opacity:.35;filter:drop-shadow(0 0 8px rgba(184,29,51,.4))}
+  .deco{position:absolute;opacity:.25;filter:drop-shadow(0 0 10px rgba(230,0,26,.5))}
   .deco.a{top:1%;left:-58px;width:215px}
-  .deco.b2{top:17%;right:-66px;width:245px;opacity:.3}
-  .deco.c{top:41%;left:-66px;width:235px;opacity:.3}
-  .deco.d{top:62%;right:-54px;width:205px;opacity:.28}
-  .deco.e{bottom:-1%;left:-42px;width:195px;opacity:.35}
-  .deco.f{bottom:2%;right:-60px;width:220px;opacity:.3}
+  .deco.b2{top:17%;right:-66px;width:245px}
+  .deco.c{top:41%;left:-66px;width:235px}
+  .deco.d{top:62%;right:-54px;width:205px}
 
   .sway{
     transform-box:fill-box;transform-origin:50% 100%;
@@ -78,12 +74,12 @@
   @keyframes sway{from{transform:rotate(-2.4deg)}to{transform:rotate(2.4deg)}}
 
   /* ================= ШАПКА ================= */
-  .hero{padding:12px 28px 46px;text-align:center}
-  .tunduk{width:186px;height:186px;margin:0 auto 20px;display:block;filter:drop-shadow(0 0 12px rgba(230,198,135,.3))}
+  .hero{padding:16px 28px 46px;text-align:center}
+  .tunduk{width:186px;height:186px;margin:0 auto 20px;display:block;filter:drop-shadow(0 0 15px rgba(230,0,26,.6))}
   .tunduk *{fill:none;stroke-linecap:round}
-  .ring{stroke:var(--garnet-glow)}
-  .mesh{stroke:var(--gold)}
-  .ray{stroke:var(--garnet);opacity:.85}
+  .ring{stroke:var(--red-sky)}
+  .mesh{stroke:var(--steel)}
+  .ray{stroke:var(--red-glow);opacity:.9}
   
   .draw{
     stroke-dasharray:1400;stroke-dashoffset:1400;
@@ -97,32 +93,39 @@
   .fade{
     animation:fadein 1s cubic-bezier(.2,.75,.25,1) both;
   }
-  .f1{animation-delay:0.3s}
-  .f2{animation-delay:0.5s}
-  .f3{animation-delay:0.7s}
-  .f4{animation-delay:0.9s}
-  .f5{animation-delay:1.1s}
-  .f6{animation-delay:1.3s}
+  .f1{animation-delay:0.2s}
+  .f2{animation-delay:0.4s}
+  .f3{animation-delay:0.6s}
+  .f4{animation-delay:0.8s}
+  .f5{animation-delay:1.0s}
+  .f6{animation-delay:1.2s}
   
   @keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--steel);font-weight:600}
+  
   .names{
     font-family:var(--display);
-    font-size:clamp(46px,13vw,72px);
+    font-size:clamp(52px,14vw,80px);
     line-height:1.15;
-    margin:10px 0 2px;
-    color:#fff;
+    margin:10px 0 0;
+    color:#ffffff;
     font-weight:400;
-    text-shadow:0 0 20px rgba(184,29,51,.6);
+    text-shadow:0 0 25px rgba(230,0,26,.8);
   }
-  .amp{display:block;font-family:var(--hand);color:var(--garnet-glow);font-size:.6em;line-height:1;margin:2px 0 4px}
-  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
+  .amp{
+    display:inline-block;
+    font-family:var(--display);
+    color:var(--red-sky);
+    font-size:.9em;
+    margin:0 8px;
+  }
+  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:24px}
   .datewrap svg{width:26px;height:26px;flex:none}
   .hero .date{
-    display:inline-block;padding:9px 12px;
+    display:inline-block;padding:9px 16px;
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--steel);
   }
 
   .orn{display:flex;justify-content:center;align-items:center;gap:10px;padding:4px 0}
@@ -132,12 +135,12 @@
   section{padding:44px 30px}
   .h2{
     font-family:var(--display);
-    font-size:38px;
+    font-size:46px;
     text-align:center;
     line-height:1.2;
     font-weight:400;
-    color:var(--gold);
-    text-shadow:0 0 10px rgba(230,198,135,.2);
+    color:#ffffff;
+    text-shadow:0 0 15px rgba(204,13,30,.4);
   }
   .lead{text-align:center;color:var(--ink-soft);max-width:45ch;margin:16px auto 0;font-size:15.5px}
 
@@ -145,41 +148,40 @@
   .cd{display:none;justify-content:center;gap:9px;margin-top:24px}
   .cd.on{display:flex}
   .cd div{
-    flex:1;max-width:92px;padding:14px 4px;background:rgba(24,10,13,.7);
-    border:1px solid var(--line);border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.5);
-    backdrop-filter:blur(4px);
+    flex:1;max-width:92px;padding:14px 4px;background:rgba(12,10,13,.7);
+    border:1px solid var(--line);border-radius:2px;box-shadow:0 6px 20px rgba(0,0,0,.6);
+    backdrop-filter:blur(6px);
   }
-  .cd b{display:block;font-family:var(--display);font-size:32px;line-height:1;color:var(--garnet-glow);font-weight:400}
-  .cd span{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+  .cd b{display:block;font-family:var(--body);font-size:24px;line-height:1;color:var(--red-glow);font-weight:600}
+  .cd span{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--steel);margin-top:8px}
   .cd-title{display:none}
   .cd-title.on{display:block}
 
   /* ================= ДЕТАЛИ ================= */
   .facts{margin-top:26px;border-top:1px solid var(--line)}
   .facts .row{display:grid;grid-template-columns:104px 1fr;gap:26px;padding:18px 2px;border-bottom:1px solid var(--line);align-items:baseline}
-  .facts dt{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .facts dt{font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--steel);font-weight:600}
   .facts dd{font-size:16.5px;color:var(--ink)}
   .facts dd small{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:3px}
-  .facts .big{font-family:var(--display);font-size:30px;color:var(--garnet-glow)}
+  .facts .big{font-family:var(--body);font-size:28px;color:var(--red-glow);font-weight:600}
 
   .btn{
     display:block;text-align:center;text-decoration:none;
     font-family:var(--body);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-    padding:17px 20px;border:1px solid var(--gold);color:var(--gold);background:transparent;
+    padding:17px 20px;border:1px solid var(--steel);color:var(--ink);background:transparent;
     width:100%;margin-top:14px;cursor:pointer;transition:.3s;
-    box-shadow:0 0 10px rgba(0,0,0,.3);
   }
-  .btn:hover{background:var(--gold);color:#0a0506;transform:translateY(-2px);box-shadow:0 0 15px rgba(230,198,135,.4)}
-  .btn.solid{background:var(--garnet);border-color:var(--garnet);color:#fff}
-  .btn.solid:hover{background:var(--garnet-glow);border-color:var(--garnet-glow);box-shadow:0 0 20px rgba(255,42,75,.6)}
+  .btn:hover{background:var(--steel);color:#0d0a0b;transform:translateY(-2px)}
+  .btn.solid{background:var(--red-sky);border-color:var(--red-sky);color:#fff;box-shadow:0 0 15px rgba(204,13,30,.4)}
+  .btn.solid:hover{background:var(--red-glow);border-color:var(--red-glow);box-shadow:0 0 25px rgba(230,0,26,.7)}
   .btn.quiet{border-color:var(--line);color:var(--ink-soft)}
   .btn.quiet:hover{background:transparent;border-color:var(--ink-soft);color:var(--ink)}
 
   footer{padding:40px 30px 56px;text-align:center;position:relative;z-index:2}
-  footer .sig{font-family:var(--display);font-size:42px;color:var(--garnet-glow);line-height:1.2}
-  footer .sub{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-top:12px}
+  footer .sig{font-family:var(--display);font-size:46px;color:var(--red-glow);line-height:1.2;font-weight:400}
+  footer .sub{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--steel);margin-top:12px}
 
-  /* СТИЛИ АНИМАЦИИ ПАДАЮЩИХ ЛИСТЬЕВ */
+  /* ЧАСТИЦЫ СВЕЧЕНИЯ */
   .falling-leaf {
     position: absolute;
     top: -40px;
@@ -189,20 +191,10 @@
     animation: fall linear forwards;
   }
   @keyframes fall {
-    0% {
-      top: -40px;
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.8;
-    }
-    90% {
-      opacity: 0.8;
-    }
-    100% {
-      top: 100%;
-      opacity: 0;
-    }
+    0% { top: -40px; opacity: 0; }
+    15% { opacity: 0.7; }
+    85% { opacity: 0.7; }
+    100% { top: 100%; opacity: 0; }
   }
 
   @media (max-width:420px){
@@ -212,8 +204,9 @@
     .facts .row{grid-template-columns:1fr;gap:9px;padding:16px 2px}
     .cd{gap:6px}
     .cd div{padding:12px 2px}
-    .cd b{font-size:26px}
-    .h2{font-size:32px}
+    .cd b{font-size:22px}
+    .h2{font-size:38px}
+    footer .sig{font-size:38px}
   }
 </style>
 </head>
@@ -222,18 +215,18 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="physalis" viewBox="0 0 130 330">
-      <g fill="none" stroke="#b81d33" stroke-width="3.2" stroke-linecap="round">
+      <g fill="none" stroke="#cc0d1e" stroke-width="3.2" stroke-linecap="round">
         <path d="M66 330 C60 250 72 186 64 96"/>
         <path d="M64 150 Q46 142 34 152"/><path d="M64 210 Q84 202 96 212"/>
       </g>
-      <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#b81d33"/>
-      <path d="M98 126 C82 132 76 152 81 172 C85 190 93 200 99 204 C106 200 115 190 118 172 C123 152 115 132 98 126 Z" fill="#e6c687"/>
+      <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#cc0d1e"/>
+      <path d="M98 126 C82 132 76 152 81 172 C85 190 93 200 99 204 C106 200 115 190 118 172 C123 152 115 132 98 126 Z" fill="#3a424a"/>
     </symbol>
     <symbol id="grapes" viewBox="0 0 130 330">
-      <g fill="none" stroke="#e6c687" stroke-width="3" stroke-linecap="round">
+      <g fill="none" stroke="#3a424a" stroke-width="3" stroke-linecap="round">
         <path d="M64 330 C58 254 70 190 62 108"/>
       </g>
-      <g fill="#b81d33">
+      <g fill="#cc0d1e">
         <circle cx="62" cy="176" r="11"/><circle cx="46" cy="192" r="11"/><circle cx="78" cy="192" r="11"/>
         <circle cx="62" cy="206" r="11"/><circle cx="40" cy="214" r="10"/><circle cx="84" cy="214" r="10"/>
         <circle cx="62" cy="232" r="10"/>
@@ -284,19 +277,19 @@
       <p class="eyebrow fade f1"><span class="ky">Урматтуу конок!</span><span class="ru">Дорогой гость!</span></p>
       <h1 class="names fade f2">Аманкул<span class="amp">&amp;</span>Айгерим</h1>
       <div class="datewrap fade f3">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#b81d33"/><path d="M20 34 L17 12" stroke="#e6c687" stroke-width="1.2" fill="none"/></svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#cc0d1e"/><path d="M20 34 L17 12" stroke="#94a3b8" stroke-width="1.2" fill="none"/></svg>
         <p class="date"><span class="ky">19-сентябрь · 2026-жыл</span><span class="ru">19 сентября · 2026</span></p>
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#b81d33"/><path d="M20 34 L23 12" stroke="#e6c687" stroke-width="1.2" fill="none"/></svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#cc0d1e"/><path d="M20 34 L23 12" stroke="#94a3b8" stroke-width="1.2" fill="none"/></svg>
       </div>
     </header>
 
     <div class="orn">
       <i></i>
       <svg viewBox="0 0 60 28" aria-hidden="true">
-        <g fill="none" stroke="#e6c687" stroke-width="1.5" stroke-linecap="round">
+        <g fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round">
           <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
         </g>
-        <circle cx="30" cy="6" r="2.4" fill="#ff2a4b"/>
+        <circle cx="30" cy="6" r="2.4" fill="#e6001a"/>
       </svg>
       <i></i>
     </div>
@@ -348,8 +341,8 @@
           <dt><span class="ky">Кийим</span><span class="ru">Дресс-код</span></dt>
           <dd><span class="ky">Кечки кийим</span><span class="ru">Вечерний наряд</span>
             <small>
-              <span class="ky">бордо, кара же алтын түстөрүн колдосоңуз, сүрөттөр сонун чыгат</span>
-              <span class="ru">поддержите цвета вечера — бордовый, чёрный, золотой</span>
+              <span class="ky">кызыл, кара же болот түстөрүн колдосоңуз, сүрөттөр сонун чыгат</span>
+              <span class="ru">поддержите цвета вечера — алый, чёрный, стальной</span>
             </small>
           </dd>
         </div>
@@ -364,10 +357,10 @@
     <div class="orn">
       <i></i>
       <svg viewBox="0 0 60 28" aria-hidden="true">
-        <g fill="none" stroke="#e6c687" stroke-width="1.5" stroke-linecap="round">
+        <g fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round">
           <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
         </g>
-        <circle cx="30" cy="6" r="2.4" fill="#ff2a4b"/>
+        <circle cx="30" cy="6" r="2.4" fill="#e6001a"/>
       </svg>
       <i></i>
     </div>
@@ -428,23 +421,24 @@
   setInterval(upd, 1000);
 })();
 
-// --- АНИМАЦИЯ ПАДАЮЩИХ ЛИСТЬЕВ/ЛЕПЕСТКОВ ---
+// --- АНИМАЦИЯ МЕРЦАЮЩИХ ЧАСТИЦ ---
 window.addEventListener('DOMContentLoaded', function(){
   const container = document.getElementById('leaves-container');
   if(!container) return;
 
-  const symbols = ['🍁', '🍂', '🌹', '✨'];
+  const symbols = ['✦', '✧', '♦', '•'];
 
-  function createLeaf(){
+  function createParticle(){
     const leaf = document.createElement('div');
     leaf.className = 'falling-leaf';
     leaf.textContent = symbols[Math.floor(Math.random() * symbols.length)];
     leaf.style.left = Math.random() * 95 + '%';
+    leaf.style.color = Math.random() > 0.5 ? '#e6001a' : '#94a3b8';
     
-    const size = 14 + Math.random() * 16;
+    const size = 8 + Math.random() * 12;
     leaf.style.fontSize = size + 'px';
     
-    const duration = 4 + Math.random() * 5;
+    const duration = 5 + Math.random() * 5;
     leaf.style.animationDuration = duration + 's';
 
     container.appendChild(leaf);
@@ -454,7 +448,7 @@ window.addEventListener('DOMContentLoaded', function(){
     }, duration * 1000);
   }
 
-  setInterval(createLeaf, 600);
+  setInterval(createParticle, 500);
 });
 </script>
 </body>
