@@ -11,12 +11,12 @@
 
 <style>
   :root {
-    /* Палитра на основе референса (солнечные осенние листья) */
+    /* Палитра на основе референса */
     --bg-paper: #FAF3E6;        /* Тёплый солнечный крем */
     --card-bg: #F4E7D3;         /* Нежный золотисто-бежевый */
     --accent-gold: #E09B35;     /* Медово-золотой */
-    --accent-deep: #C04A2B;     /* Кораллово-терракотовый (прожилки) */
-    --text-main: #2A2415;       /* Глубокий бронзово-тёмный */
+    --accent-deep: #C04A2B;     /* Кораллово-терракотовый */
+    --text-main: #2A2415;       /* Бронзово-тёмный */
     --text-muted: #6B5E4A;      /* Мягкий оливково-коричневый */
     --line-color: rgba(224, 155, 53, 0.3);
 
@@ -33,6 +33,7 @@
     font-weight: 300;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   .sheet {
@@ -45,6 +46,63 @@
     padding: 30px 24px 50px;
     border-left: 1px solid rgba(224, 155, 53, 0.25);
     border-right: 1px solid rgba(224, 155, 53, 0.25);
+    overflow: hidden; /* Предотвращает появление полос прокрутки от листиков */
+  }
+
+  /* Контейнер для падающих листьев */
+  .leaves-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Листики не препятствуют нажатиям на кнопки */
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  /* Падающий листочек */
+  .leaf {
+    position: absolute;
+    top: -40px;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: fall linear infinite;
+  }
+
+  .leaf svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Анимация падения по ветру с качанием */
+  @keyframes fall {
+    0% {
+      top: -40px;
+      transform: translateX(0) rotate(-10deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: var(--leaf-opacity, 0.7);
+    }
+    25% {
+      transform: translateX(25px) rotate(12deg);
+    }
+    50% {
+      transform: translateX(-20px) rotate(-8deg);
+    }
+    75% {
+      transform: translateX(30px) rotate(15deg);
+    }
+    90% {
+      opacity: var(--leaf-opacity, 0.7);
+    }
+    100% {
+      top: 105%;
+      transform: translateX(-10px) rotate(-5deg);
+      opacity: 0;
+    }
   }
 
   /* Переключение языка */
@@ -59,6 +117,8 @@
     justify-content: flex-end;
     gap: 6px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 20;
   }
   .lang label {
     font-size: 11px;
@@ -81,7 +141,7 @@
   }
 
   /* Түндүк и Шапка */
-  .hero { text-align: center; padding-top: 10px; }
+  .hero { text-align: center; padding-top: 10px; position: relative; z-index: 20; }
   .tunduk-icon {
     width: 90px;
     height: 90px;
@@ -138,6 +198,8 @@
     justify-content: center;
     gap: 12px;
     margin: 36px 0;
+    position: relative;
+    z-index: 20;
   }
   .divider-line {
     width: 60px;
@@ -152,7 +214,7 @@
   }
 
   /* Текст и Секции */
-  section { text-align: center; }
+  section { text-align: center; position: relative; z-index: 20; }
   .h2 {
     font-family: var(--font-serif);
     font-size: 26px;
@@ -258,6 +320,8 @@
     border-radius: 4px;
     transition: 0.25s;
     cursor: pointer;
+    position: relative;
+    z-index: 20;
   }
   .btn.solid {
     background: var(--accent-deep);
@@ -273,6 +337,8 @@
     text-align: center;
     margin-top: 40px;
     padding-top: 20px;
+    position: relative;
+    z-index: 20;
   }
   footer .sig {
     font-family: var(--font-serif);
@@ -297,6 +363,8 @@
 <body>
 
 <div class="sheet">
+  <!-- Контейнер для падения листьев -->
+  <div class="leaves-container" id="leavesContainer"></div>
 
   <input type="radio" name="lng" id="lng-ky" class="lng-input" checked aria-label="Кыргызча">
   <input type="radio" name="lng" id="lng-ru" class="lng-input" aria-label="Русский">
@@ -441,6 +509,7 @@
 </div>
 
 <script>
+// Таймер
 (function(){
   var TARGET = 1789812000000;
   var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"),
@@ -457,6 +526,43 @@
   }
   upd();
   setInterval(upd, 1000);
+})();
+
+// Генератор аккуратно падающих листьев по ветру
+(function(){
+  var container = document.getElementById('leavesContainer');
+  if (!container) return;
+
+  var leafSVG = '<svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 8 2 13.5C2 17.5 5 21 9 22C8.5 19 9.5 15.5 12 13C14.5 15.5 15.5 19 15 22C19 21 22 17.5 22 13.5C22 8 17.5 2 12 2Z" fill="currentColor"/></svg>';
+  var colors = ['#E09B35', '#C04A2B', '#D48430', '#B55A27'];
+  var leafCount = 10; // Небольшое количество для ненавязчивости
+
+  for (var i = 0; i < leafCount; i++) {
+    createLeaf(i);
+  }
+
+  function createLeaf(index) {
+    var leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    leaf.innerHTML = leafSVG;
+
+    var size = Math.floor(Math.random() * 12) + 14; // Размер от 14px до 26px
+    var left = Math.random() * 92; // Позиция по горизонтали в %
+    var duration = Math.random() * 7 + 8; // Длительность падения 8-15 секунд
+    var delay = Math.random() * 10; // Задержка старта
+    var opacity = (Math.random() * 0.35 + 0.25).toFixed(2); // Прозрачность 0.25 - 0.60
+    var color = colors[Math.floor(Math.random() * colors.length)];
+
+    leaf.style.width = size + 'px';
+    leaf.style.height = size + 'px';
+    leaf.style.left = left + '%';
+    leaf.style.color = color;
+    leaf.style.animationDuration = duration + 's';
+    leaf.style.animationDelay = delay + 's';
+    leaf.style.setProperty('--leaf-opacity', opacity);
+
+    container.appendChild(leaf);
+  }
 })();
 </script>
 </body>
