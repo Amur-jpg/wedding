@@ -7,250 +7,299 @@
 <meta name="description" content="Аманкул жана Айгеримдин үйлөнүү тоюна чакыруу / Приглашение на свадьбу Аманкула и Айгерим">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    /* Светлая, теплая осенняя палитра */
-    --paper: #FAF6F0;        /* Теплый кремово-молочный фон */
-    --card-bg: #F4ECE1;      /* Фон карточек */
-    --border-warm: #D0A776;  /* Мягкое золото */
-    
-    --ink: #22140C;          /* Глубокий темно-коричневый */
-    --ink-soft: #5C4335;     /* Ореховый */
-    --terracotta: #A8492A;   /* Терракот */
-    --garnet: #7D2319;       /* Винно-бордовый акцент */
-    --line: rgba(125, 35, 25, 0.18);
-    
-    --serif-display: 'Playfair Display', Georgia, serif;
-    --serif-body: 'Cormorant Garamond', Georgia, serif;
-    --body: 'Manrope', -apple-system, sans-serif;
+  :root {
+    /* Палитра на основе референса (солнечные осенние листья) */
+    --bg-paper: #FAF3E6;        /* Тёплый солнечный крем */
+    --card-bg: #F4E7D3;         /* Нежный золотисто-бежевый */
+    --accent-gold: #E09B35;     /* Медово-золотой */
+    --accent-deep: #C04A2B;     /* Кораллово-терракотовый (прожилки) */
+    --text-main: #2A2415;       /* Глубокий бронзово-тёмный */
+    --text-muted: #6B5E4A;      /* Мягкий оливково-коричневый */
+    --line-color: rgba(224, 155, 53, 0.3);
+
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Manrope', -apple-system, sans-serif;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background: #180D08; overflow-x:hidden; color:var(--ink);
-    font-family:var(--body); font-weight:300; line-height:1.68;
-    -webkit-font-smoothing:antialiased;
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #19140B;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  .sheet{
-    max-width:600px; margin:0 auto; position:relative; overflow:hidden;
-    background: var(--paper);
-    border-left: 1px solid var(--border-warm);
-    border-right: 1px solid var(--border-warm);
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+
+  .sheet {
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--bg-paper);
     min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    padding: 30px 24px 50px;
+    border-left: 1px solid rgba(224, 155, 53, 0.25);
+    border-right: 1px solid rgba(224, 155, 53, 0.25);
   }
-  .content{position:relative;z-index:2}
 
-  /* ======= ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА ======= */
-  .lng-input{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .content .ru{display:none}
-  #lng-ru:checked ~ .content .ky{display:none}
-  #lng-ru:checked ~ .content .ru{display:inline}
-  #lng-ru:checked ~ .content .b.ru{display:block}
+  /* Переключение языка */
+  .lng-input { display: none; }
+  .content .ru { display: none; }
+  #lng-ru:checked ~ .content .ky { display: none; }
+  #lng-ru:checked ~ .content .ru { display: inline; }
+  #lng-ru:checked ~ .content .b.ru { display: block; }
 
-  .lang{position:sticky;top:0;z-index:30;display:flex;justify-content:flex-end;padding:14px 20px 0}
-  .lang label{
-    font-family:var(--body);font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;
-    background:rgba(250, 246, 240, 0.9);border:1px solid var(--border-warm);color:var(--ink-soft);
-    padding:7px 14px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-    -webkit-tap-highlight-color:transparent;user-select:none; border-radius: 20px;
+  .lang {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .lang label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.2s;
   }
   #lng-ky:checked ~ .content .lang label[for="lng-ky"],
-  #lng-ru:checked ~ .content .lang label[for="lng-ru"]{background:var(--garnet);border-color:var(--garnet);color:#FFFDF9}
-
-  /* ================= РАСТЕНИЯ НА ФОНЕ ================= */
-  .garden{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-  .deco{position:absolute;opacity:.7}
-  .deco.a{top:1%;left:-58px;width:215px}
-  .deco.b2{top:17%;right:-66px;width:245px}
-  .deco.c{top:41%;left:-66px;width:235px}
-  .deco.d{top:62%;right:-54px;width:205px}
-  .deco.e{bottom:-1%;left:-42px;width:195px}
-  .deco.f{bottom:2%;right:-60px;width:220px}
-
-  .sway{-webkit-transform-box:fill-box;transform-box:fill-box;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;animation:sway 10s ease-in-out infinite alternate}
-  .sway.s2{animation-duration:12.5s;animation-delay:-3s}
-  .sway.s3{animation-duration:14s;animation-delay:-7s}
-  @keyframes sway{from{transform:rotate(-2.4deg)}to{transform:rotate(2.4deg)}}
-
-  #leaves{position:absolute;inset:0;pointer-events:none;overflow:hidden;transform-style:preserve-3d}
-  .leaf-wrap{position:absolute;top:-50px;will-change:transform;animation:fall linear infinite}
-  .leaf{width:12px;height:12px;border-radius:0 68% 0 68%;will-change:transform;animation:spin linear infinite;opacity:.7}
-
-  @keyframes fall{
-    0%{transform:translate3d(0,-50px,0);opacity:0}
-    10%{opacity:1}
-    90%{opacity:.85}
-    100%{transform:translate3d(70px,115vh,0);opacity:0}
-  }
-  @keyframes spin{
-    0%{transform:rotate(0deg) rotateY(0deg)}
-    50%{transform:rotate(200deg) rotateY(180deg)}
-    100%{transform:rotate(400deg) rotateY(360deg)}
+  #lng-ru:checked ~ .content .lang label[for="lng-ru"] {
+    background: var(--accent-deep);
+    border-color: var(--accent-deep);
+    color: #FFFDF9;
   }
 
-  /* ================= ШАПКА И ИМЕНА ================= */
-  .hero{padding:20px 24px 36px;text-align:center}
-  .tunduk{width:150px;height:150px;margin:0 auto 18px;display:block}
-  .tunduk *{fill:none;stroke-linecap:round}
-  .ring{stroke:var(--border-warm)}
-  .mesh{stroke:var(--terracotta)}
-  .ray{stroke:var(--border-warm);opacity:.8}
-
-  .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--garnet);font-weight:600}
+  /* Түндүк и Шапка */
+  .hero { text-align: center; padding-top: 10px; }
+  .tunduk-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 16px;
+    opacity: 0.9;
+  }
   
-  /* ИМЕНА */
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
   .names-block {
-    margin: 20px 0 14px;
+    margin: 10px 0 20px;
   }
   .name-item {
-    font-family: var(--serif-display);
-    font-size: clamp(34px, 8vw, 48px);
-    line-height: 1.15;
-    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 44px;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
     display: block;
   }
   .amp-symbol {
-    display: block;
-    font-family: var(--serif-body);
+    font-family: var(--font-serif);
     font-style: italic;
-    color: var(--garnet);
-    font-size: 30px;
+    font-size: 28px;
+    color: var(--accent-gold);
+    margin: 2px 0;
+    display: block;
+  }
+
+  .date-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border-top: 1px solid var(--line-color);
+    border-bottom: 1px solid var(--line-color);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-main);
+    font-weight: 500;
+  }
+
+  /* Разделитель */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 36px 0;
+  }
+  .divider-line {
+    width: 60px;
+    height: 1px;
+    background: var(--line-color);
+  }
+  .divider-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-gold);
+    transform: rotate(45deg);
+  }
+
+  /* Текст и Секции */
+  section { text-align: center; }
+  .h2 {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 14px;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Таймер */
+  .cd {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .cd div {
+    flex: 1;
+    max-width: 80px;
+    padding: 12px 6px;
+    background: var(--card-bg);
+    border: 1px solid var(--line-color);
+    border-radius: 6px;
+  }
+  .cd b {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 600;
     line-height: 1;
-    margin: 4px 0;
-    font-weight: 400;
+    color: var(--accent-deep);
   }
-  
-  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
-  .datewrap svg{width:22px;height:22px;flex:none}
-  .hero .date{
-    display:inline-block;padding:8px 16px;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);font-weight:600;
+  .cd span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-weight: 600;
   }
 
-  .orn{display:flex;justify-content:center;align-items:center;gap:10px;padding:4px 0}
-  .orn i{display:block;width:52px;height:1px;background:var(--line)}
-  .orn svg{width:54px;height:26px}
-
-  section{padding:36px 26px}
-  .h2{font-family:var(--serif-display);font-size:24px;text-align:center;line-height:1.3;color:var(--ink);font-weight:500}
-  .lead{text-align:center;color:var(--ink-soft);max-width:46ch;margin:14px auto 0;font-size:15px;font-weight:400}
-
-  /* ================= ТАЙМЕР ================= */
-  .cd{display:none;justify-content:center;gap:10px;margin-top:22px}
-  .cd.on{display:flex}
-  .cd div{
-    flex:1;max-width:84px;padding:12px 4px;background:var(--card-bg);
-    border:1px solid var(--border-warm);border-radius:6px;
+  /* Детали */
+  .facts {
+    margin-top: 24px;
+    text-align: left;
+    border-top: 1px solid var(--line-color);
   }
-  .cd b{display:block;font-family:var(--serif-display);font-size:24px;line-height:1;color:var(--garnet)}
-  .cd span{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;font-weight:600}
-  .cd-title{display:none}
-  .cd-title.on{display:block}
-
-  /* ================= ДЕТАЛИ ================= */
-  .facts{margin-top:22px;border-top:1px solid var(--line)}
-  .facts .row{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:16px 2px;border-bottom:1px solid var(--line);align-items:baseline}
-  .facts dt{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--garnet);font-weight:600}
-  .facts dd{font-size:15.5px;color:var(--ink)}
-  .facts dd small{display:block;color:var(--ink-soft);font-size:13px;margin-top:3px}
-  .facts .big{font-family:var(--serif-display);font-size:22px;color:var(--garnet);font-weight:600}
-
-  .btn{
-    display:block;text-align:center;text-decoration:none;
-    font-family:var(--body);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-    padding:15px 18px;border:1px solid var(--garnet);color:var(--garnet);background:transparent;
-    width:100%;margin-top:12px;cursor:pointer;transition:.3s;border-radius:4px;
+  .facts .row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-color);
+    align-items: baseline;
   }
-  .btn:hover{background:var(--garnet);color:#FFFDF9}
-  .btn.solid{background:var(--garnet);border-color:var(--garnet);color:#FFFDF9}
-  .btn.solid:hover{background:#58160F;border-color:#58160F}
-  .btn.quiet{border-color:var(--line);color:var(--ink-soft)}
-  .btn.quiet:hover{border-color:var(--ink-soft);color:var(--ink)}
+  .facts dt {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
+  .facts dd {
+    font-size: 15px;
+    color: var(--text-main);
+  }
+  .facts dd small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .facts .big {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    color: var(--accent-deep);
+    font-weight: 600;
+  }
 
-  footer{padding:32px 24px 44px;text-align:center;position:relative;z-index:2}
-  footer .sig{font-family:var(--serif-body);font-size:26px;color:var(--garnet);line-height:1.3;font-style:italic}
-  footer .sub{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;font-weight:600}
+  /* Кнопки */
+  .btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 15px 20px;
+    border: 1px solid var(--accent-deep);
+    color: var(--accent-deep);
+    background: transparent;
+    width: 100%;
+    margin-top: 12px;
+    border-radius: 4px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .btn.solid {
+    background: var(--accent-deep);
+    color: #FFFDF9;
+  }
+  .btn.solid:hover { background: #9E381E; }
+  .btn.quiet {
+    border-color: var(--line-color);
+    color: var(--text-muted);
+  }
 
-  @media (max-width:420px){
-    .hero{padding:14px 18px 28px}
-    section{padding:28px 18px}
-    .facts .row{grid-template-columns:1fr;gap:4px}
-    .name-item { font-size: 34px; }
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+  footer .sig {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--accent-deep);
+    font-style: italic;
+  }
+  footer .sub {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  @media (max-width: 400px) {
+    .name-item { font-size: 36px; }
+    .facts .row { grid-template-columns: 1fr; gap: 2px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ====== ОСЕННИЕ РАСТЕНИЯ ====== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="physalis" viewBox="0 0 130 330">
-      <g fill="none" stroke="#8C6339" stroke-width="3" stroke-linecap="round">
-        <path d="M66 330 C60 250 72 186 64 96"/>
-        <path d="M64 150 Q46 142 34 152"/><path d="M64 210 Q84 202 96 212"/>
-      </g>
-      <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#A8492A"/>
-      <path d="M98 126 C82 132 76 152 81 172 C85 190 93 200 99 204 C106 200 115 190 118 172 C123 152 115 132 98 126 Z" fill="#D0A776"/>
-    </symbol>
-
-    <symbol id="poplar" viewBox="0 0 130 330">
-      <g fill="none" stroke="#8C6339" stroke-width="3" stroke-linecap="round">
-        <path d="M62 330 C58 250 68 180 62 74"/>
-      </g>
-      <g>
-        <path d="M34 232 L20 214 L28 190 L44 210 Z" fill="#A8492A"/>
-        <path d="M92 198 L108 182 L102 158 L84 178 Z" fill="#D0A776"/>
-        <path d="M32 162 L16 146 L24 122 L42 142 Z" fill="#A8492A"/>
-        <path d="M92 128 L110 114 L104 90 L86 110 Z" fill="#D0A776"/>
-      </g>
-    </symbol>
-
-    <symbol id="wheat" viewBox="0 0 110 330">
-      <g fill="none" stroke="#8C6339" stroke-width="2.6" stroke-linecap="round">
-        <path d="M55 330 C52 250 58 190 55 118"/>
-      </g>
-      <g fill="#D0A776">
-        <ellipse cx="55" cy="52" rx="7" ry="15"/>
-        <ellipse cx="41" cy="74" rx="7" ry="14" transform="rotate(-22 41 74)"/>
-        <ellipse cx="69" cy="74" rx="7" ry="14" transform="rotate(22 69 74)"/>
-        <ellipse cx="41" cy="96" rx="7" ry="14" transform="rotate(-22 41 96)"/>
-        <ellipse cx="69" cy="96" rx="7" ry="14" transform="rotate(22 69 96)"/>
-      </g>
-    </symbol>
-
-    <symbol id="grapes" viewBox="0 0 130 330">
-      <g fill="none" stroke="#8C6339" stroke-width="3" stroke-linecap="round">
-        <path d="M64 330 C58 254 70 190 62 108"/>
-      </g>
-      <g fill="#7D2319">
-        <circle cx="62" cy="176" r="11"/><circle cx="46" cy="192" r="11"/><circle cx="78" cy="192" r="11"/>
-        <circle cx="62" cy="206" r="11"/><circle cx="40" cy="214" r="10"/><circle cx="84" cy="214" r="10"/>
-        <circle cx="62" cy="232" r="10"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <div class="sheet">
 
   <input type="radio" name="lng" id="lng-ky" class="lng-input" checked aria-label="Кыргызча">
   <input type="radio" name="lng" id="lng-ru" class="lng-input" aria-label="Русский">
-
-  <div class="garden" aria-hidden="true">
-    <svg class="deco a"  viewBox="0 0 265 340"><g><use href="#poplar"   class="sway"    x="0"   y="6"  width="130" height="330"/><use href="#physalis" class="sway s2" x="112" y="56" width="130" height="330"/></g></svg>
-    <svg class="deco b2" viewBox="0 0 265 340"><g><use href="#grapes"   class="sway s3" x="6"   y="36" width="130" height="330"/><use href="#poplar"   class="sway"    x="118" y="0"  width="130" height="330"/></g></svg>
-    <svg class="deco c"  viewBox="0 0 265 340"><g><use href="#physalis" class="sway s2" x="0"   y="26" width="130" height="330"/><use href="#wheat"    class="sway s3" x="120" y="66" width="110" height="330"/></g></svg>
-    <svg class="deco d"  viewBox="0 0 265 340"><g><use href="#wheat"    class="sway"    x="14"  y="66" width="110" height="330"/><use href="#grapes"   class="sway s2" x="112" y="16" width="130" height="330"/></g></svg>
-    <svg class="deco e"  viewBox="0 0 265 340"><g><use href="#poplar"   class="sway s3" x="2"   y="36" width="130" height="330"/><use href="#physalis" class="sway"    x="116" y="76" width="130" height="330"/></g></svg>
-    <svg class="deco f"  viewBox="0 0 265 340"><g><use href="#physalis" class="sway s2" x="0"   y="56" width="130" height="330"/><use href="#poplar"   class="sway"    x="112" y="26" width="130" height="330"/></g></svg>
-    <div id="leaves"></div>
-  </div>
 
   <div class="content">
 
@@ -259,24 +308,17 @@
       <label for="lng-ru">Рус</label>
     </div>
 
-    <!-- ================= ШАПКА ================= -->
+    <!-- ШАПКА -->
     <header class="hero">
-      <svg class="tunduk" viewBox="0 0 200 200" aria-hidden="true">
-        <g class="ray" stroke-width="1.3">
-          <line x1="100" y1="6"   x2="100" y2="22"/><line x1="133" y1="14"  x2="127" y2="29"/>
-          <line x1="161" y1="39"  x2="150" y2="51"/><line x1="178" y1="72"  x2="163" y2="79"/>
-          <line x1="178" y1="128" x2="163" y2="121"/><line x1="161" y1="161" x2="150" y2="149"/>
-          <line x1="133" y1="186" x2="127" y2="171"/><line x1="100" y1="194" x2="100" y2="178"/>
-          <line x1="67"  y1="186" x2="73"  y2="171"/><line x1="39"  y1="161" x2="50"  y2="149"/>
-          <line x1="22"  y1="128" x2="37"  y2="121"/><line x1="22"  y1="72"  x2="37"  y2="79"/>
-          <line x1="39"  y1="39"  x2="50"  y2="51"/><line x1="67"  y1="14"  x2="73"  y2="29"/>
-        </g>
-        <circle class="ring" cx="100" cy="100" r="78" stroke-width="1"/>
-        <circle class="ring" cx="100" cy="100" r="70" stroke-width="2"/>
-        <g class="mesh" stroke-width="1.7">
-          <path d="M42 74 Q100 46 158 74"/><path d="M36 100 Q100 68 164 100"/><path d="M42 126 Q100 98 158 126"/>
-          <path d="M74 158 Q46 100 74 42"/><path d="M100 164 Q68 100 100 36"/><path d="M126 158 Q98 100 126 42"/>
-        </g>
+      <svg class="tunduk-icon" viewBox="0 0 100 100" fill="none" stroke="#E09B35" stroke-width="1.8">
+        <circle cx="50" cy="50" r="42" stroke-width="1.2"/>
+        <circle cx="50" cy="50" r="38" stroke-width="2"/>
+        <path d="M20 38 Q50 22 80 38"/>
+        <path d="M16 50 Q50 32 84 50"/>
+        <path d="M20 62 Q50 46 80 62"/>
+        <path d="M38 20 Q22 50 38 80"/>
+        <path d="M50 16 Q32 50 50 84"/>
+        <path d="M62 20 Q46 50 62 80"/>
       </svg>
 
       <p class="eyebrow"><span class="ky">Урматтуу конок!</span><span class="ru">Дорогой гость!</span></p>
@@ -287,33 +329,27 @@
         <span class="name-item">Айгерим</span>
       </div>
 
-      <div class="datewrap">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#A8492A"/><path d="M20 34 L17 12" stroke="#8C6339" stroke-width="1.2" fill="none"/></svg>
-        <p class="date"><span class="ky">19-сентябрь · 2026-жыл</span><span class="ru">19 сентября · 2026</span></p>
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#D0A776"/><path d="M20 34 L23 12" stroke="#8C6339" stroke-width="1.2" fill="none"/></svg>
+      <div class="date-badge">
+        <span class="ky">19-сентябрь · 2026-жыл</span>
+        <span class="ru">19 сентября · 2026</span>
       </div>
     </header>
 
-    <div class="orn">
-      <i></i>
-      <svg viewBox="0 0 60 28" aria-hidden="true">
-        <g fill="none" stroke="#A8492A" stroke-width="1.5" stroke-linecap="round">
-          <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
-        </g>
-        <circle cx="30" cy="6" r="2.4" fill="#7D2319"/>
-      </svg>
-      <i></i>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
     </div>
 
-    <!-- ================= ПРИВЕТСТВИЕ ================= -->
+    <!-- ПРИВЕТСТВИЕ -->
     <section>
       <h2 class="h2"><span class="ky">Кымбаттуу туугандар жана достор!</span><span class="ru">Дорогие родные и друзья!</span></h2>
       <p class="lead">
-        <span class="ky">Биз үй-бүлө курууну чечтик. Күз — берекенин, мол түшүмдүн мезгили. Ошондуктан турмушубуздагы эң кубанычтуу күндү дал ушул кезде, сиздер менен чогуу тосууну каалайбыз.</span>
-        <span class="ru">Мы решили создать семью. Осень — время щедрости и урожая, и самый счастливый день нашей жизни нам хочется встретить именно сейчас — вместе с вами.</span>
+        <span class="ky">Биз үй-бүлө курууну чечтик. Күз — берекенин мезгили. Ошондуктан турмушубуздагы эң кубанычтуу күндү дал ушул кезде сиздер менен чогуу тосууну каалайбыз.</span>
+        <span class="ru">Мы решили создать семью. Осень — время теплых встреч, и самый счастливый день нашей жизни мы хотим разделить именно с вами.</span>
       </p>
 
-      <p class="eyebrow cd-title" id="cd-title" style="text-align:center;margin-top:30px">
+      <p class="eyebrow" style="margin-top: 30px; margin-bottom: 0;">
         <span class="ky">Тойго чейин калды</span><span class="ru">До свадьбы осталось</span>
       </p>
       <div class="cd" id="cd">
@@ -322,37 +358,15 @@
         <div><b id="cd-m">0</b><span class="ky b">мүнөт</span><span class="ru b">минут</span></div>
         <div><b id="cd-s">0</b><span class="ky b">секунд</span><span class="ru b">секунд</span></div>
       </div>
-      <script>
-      (function(){
-        var TARGET = 1789812000000;
-        var box = document.getElementById("cd");
-        var ttl = document.getElementById("cd-title");
-        var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"),
-            m = document.getElementById("cd-m"), s = document.getElementById("cd-s");
-        if (!box || !d || !h || !m || !s) return;
-        function set(el, n){
-          n = "" + n;
-          if (el.firstChild) el.firstChild.nodeValue = n;
-          else el.appendChild(document.createTextNode(n));
-        }
-        function upd(){
-          var left = TARGET - (new Date()).getTime();
-          if (!(left > 0)) left = 0;
-          var t = Math.floor(left / 1000);
-          set(d, Math.floor(t / 86400));
-          set(h, Math.floor(t % 86400 / 3600));
-          set(m, Math.floor(t % 3600 / 60));
-          set(s, t % 60);
-        }
-        upd();
-        box.className = "cd on";
-        if (ttl) ttl.className = "eyebrow cd-title on";
-        setInterval(upd, 1000);
-      })();
-      </script>
     </section>
 
-    <!-- ================= ДЕТАЛИ ================= -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ДЕТАЛИ -->
     <section>
       <h2 class="h2"><span class="ky">Той жөнүндө</span><span class="ru">О торжестве</span></h2>
       <dl class="facts">
@@ -380,36 +394,31 @@
           <dt><span class="ky">Кийим</span><span class="ru">Дресс-код</span></dt>
           <dd><span class="ky">Кечки кийим</span><span class="ru">Вечерний наряд</span>
             <small>
-              <span class="ky">күздүн түстөрүн — алтын, кызгылт, күрөң — колдосоңуз, сүрөттөр сонун чыгат</span>
-              <span class="ru">поддержите осенние цвета — золотой, терракотовый, охра — фотографии получатся чудесными</span>
+              <span class="ky">күздүн түстөрүн — алтын, терракота, күрөң — колдосоңуз абдан кубанычта болобуз</span>
+              <span class="ru">будем рады, если поддержите осеннюю гамму: золотистый, терракотовый, охру</span>
             </small>
           </dd>
         </div>
       </dl>
 
-      <a class="btn b ky" target="_blank" rel="noopener"
+      <a class="btn ky" target="_blank" rel="noopener"
          href="https://2gis.kg/bishkek/search/%D1%80%D0%B8%D0%BC/firm/70000001063765710?m=74.078415%2C42.834042%2F13.97">Картадан кароо</a>
-      <a class="btn b ru" target="_blank" rel="noopener"
+      <a class="btn ru" target="_blank" rel="noopener"
          href="https://2gis.kg/bishkek/search/%D1%80%D0%B8%D0%BC/firm/70000001063765710?m=74.078415%2C42.834042%2F13.97">Посмотреть на карте</a>
     </section>
 
-    <div class="orn">
-      <i></i>
-      <svg viewBox="0 0 60 28" aria-hidden="true">
-        <g fill="none" stroke="#A8492A" stroke-width="1.5" stroke-linecap="round">
-          <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
-        </g>
-        <circle cx="30" cy="6" r="2.4" fill="#7D2319"/>
-      </svg>
-      <i></i>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
     </div>
 
-    <!-- ================= ПОДТВЕРЖДЕНИЕ ================= -->
+    <!-- ПОДТВЕРЖДЕНИЕ -->
     <section>
       <h2 class="h2"><span class="ky">Катышууңузду тастыктаңыз</span><span class="ru">Подтвердите присутствие</span></h2>
       <p class="lead">
         <span class="ky">Оруңдарды даярдап коюшубуз үчүн 10-сентябрга чейин кабарлап коюңуздар.</span>
-        <span class="ru">Чтобы мы успели всё подготовить, дайте знать до 10 сентября.</span>
+        <span class="ru">Чтобы мы успели всё подготовить, пожалуйста, дайте знать до 10 сентября.</span>
       </p>
 
       <a class="btn solid b ky" target="_blank" rel="noopener"
@@ -433,38 +442,21 @@
 
 <script>
 (function(){
-  try{
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var box = document.getElementById("leaves");
-    if (!box) return;
-    
-    var colors = ["#A8492A", "#D0A776", "#7D2319", "#8C6339"];
-    
-    for (var i = 0; i < 14; i++){
-      var w = document.createElement("div");
-      w.className = "leaf-wrap";
-      w.style.left = (Math.random() * 92 + 2) + "%";
-      
-      var dur = (14 + Math.random() * 12) + "s";
-      var del = (-Math.random() * 25) + "s";
-      
-      w.style.animationDuration = dur;
-      w.style.animationDelay = del;
-
-      var l = document.createElement("div");
-      l.className = "leaf";
-      var size = (8 + Math.round(Math.random() * 6)) + "px";
-      l.style.width = size; 
-      l.style.height = size;
-      l.style.background = colors[i % colors.length];
-      
-      var sd = (3 + Math.random() * 4) + "s";
-      l.style.animationDuration = sd;
-
-      w.appendChild(l);
-      box.appendChild(w);
-    }
-  }catch(e){}
+  var TARGET = 1789812000000;
+  var d = document.getElementById("cd-d"), h = document.getElementById("cd-h"),
+      m = document.getElementById("cd-m"), s = document.getElementById("cd-s");
+  if (!d || !h || !m || !s) return;
+  function upd(){
+    var left = TARGET - (new Date()).getTime();
+    if (left < 0) left = 0;
+    var t = Math.floor(left / 1000);
+    d.textContent = Math.floor(t / 86400);
+    h.textContent = Math.floor(t % 86400 / 3600);
+    m.textContent = Math.floor(t % 3600 / 60);
+    s.textContent = t % 60;
+  }
+  upd();
+  setInterval(upd, 1000);
 })();
 </script>
 </body>
