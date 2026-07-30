@@ -7,21 +7,22 @@
 <meta name="description" content="Аманкул жана Айгеримдин үйлөнүү тоюна чакыруу / Приглашение на свадьбу Аманкула и Айгерим">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Marck+Script&family=Prata&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;600&family=Prata&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --paper:#EED9C4;
-    --card:#FDF8F0;
-    --card-2:#F4E4D0;
-    --ink:#2C1E16;
-    --ink-soft:#5C4638;
-    --gold:#C0802B;
-    --garnet:#8B2635;
-    --amber:#D96B27;
-    --line:rgba(92, 70, 56, 0.22);
+    /* Мягкая осенняя палитра (вдохновлена янтарным светом) */
+    --paper:#E8D5C4;
+    --card:#FAF2E8;
+    --card-2:#F2DFCD;
+    --ink:#321F17;
+    --ink-soft:#624638;
+    --gold:#C47B2B;
+    --garnet:#862B28;
+    --amber:#E07A26;
+    --line:rgba(98, 70, 56, 0.2);
     --display:'Prata', 'Times New Roman', serif;
-    --hand:'Marck Script', cursive;
+    --hand:'Cormorant Garamond', serif;
     --body:'Manrope', -apple-system, sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -34,7 +35,7 @@
   .sheet{
     max-width:640px;margin:0 auto;position:relative;overflow:hidden;
     background:radial-gradient(100% 55% at 50% 0%, #FFFDF9 0%, var(--card) 50%, var(--card-2) 100%);
-    box-shadow:0 0 50px rgba(44,30,22,.25);
+    box-shadow:0 0 50px rgba(50,31,23,.22);
   }
   .content{position:relative;z-index:2}
 
@@ -48,7 +49,7 @@
   .lang{position:sticky;top:0;z-index:30;display:flex;justify-content:flex-end;padding:14px 20px 0}
   .lang label{
     font-family:var(--body);font-size:11px;letter-spacing:.18em;font-weight:600;text-transform:uppercase;
-    background:rgba(253,248,240,.9);border:1px solid var(--line);color:var(--ink-soft);
+    background:rgba(250,242,232,.9);border:1px solid var(--line);color:var(--ink-soft);
     padding:9px 15px;cursor:pointer;transition:.28s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
     -webkit-tap-highlight-color:transparent;user-select:none;
   }
@@ -81,7 +82,7 @@
   }
   .leaf{
     width:14px;height:14px;border-radius:0 68% 0 68%;will-change:transform;
-    -webkit-animation:spin linear infinite;animation:spin linear infinite;opacity:.65;
+    -webkit-animation:spin linear infinite;animation:spin linear infinite;opacity:.7;
   }
 
   @-webkit-keyframes fall{
@@ -134,17 +135,28 @@
   @keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
   .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+  
+  /* Элегантный стиль имен */
   .names{
     font-family:var(--hand);
-    font-size:clamp(52px, 15vw, 84px);
-    line-height:1.05;
-    margin:10px 0 0;
+    font-size:clamp(46px, 13vw, 72px);
+    line-height:1.1;
+    margin:12px 0 0;
     color:var(--ink);
-    font-weight:normal;
+    font-weight:400;
+    letter-spacing:0.02em;
   }
-  .amp{display:block;font-family:var(--hand);color:var(--garnet);font-size:.75em;line-height:.7;margin:4px 0}
+  .amp{
+    display:block;
+    font-family:var(--hand);
+    font-style:italic;
+    color:var(--garnet);
+    font-size:0.65em;
+    line-height:0.8;
+    margin:6px 0;
+  }
   
-  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:20px}
+  .datewrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
   .datewrap svg{width:26px;height:26px;flex:none}
   .hero .date{
     display:inline-block;padding:9px 6px;
@@ -165,7 +177,7 @@
   .cd.on{display:flex}
   .cd div{
     flex:1;max-width:92px;padding:14px 4px;background:#FFFDF9;
-    border:1px solid var(--line);border-radius:3px;box-shadow:0 6px 18px rgba(44,30,22,.08);
+    border:1px solid var(--line);border-radius:3px;box-shadow:0 6px 18px rgba(50,31,23,.06);
   }
   .cd b{display:block;font-family:var(--display);font-size:27px;line-height:1;color:var(--garnet)}
   .cd span{display:block;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
@@ -188,12 +200,12 @@
   }
   .btn:hover{background:var(--ink);color:#FFFDF9;transform:translateY(-2px)}
   .btn.solid{background:var(--garnet);border-color:var(--garnet);color:#FFFDF9}
-  .btn.solid:hover{background:#6E1C28;border-color:#6E1C28}
+  .btn.solid:hover{background:#671F1D;border-color:#671F1D}
   .btn.quiet{border-color:var(--line);color:var(--ink-soft)}
   .btn.quiet:hover{background:transparent;border-color:var(--ink-soft);color:var(--ink)}
 
   footer{padding:40px 30px 56px;text-align:center;position:relative;z-index:2}
-  footer .sig{font-family:var(--hand);font-size:40px;color:var(--garnet);line-height:1.2;font-weight:normal}
+  footer .sig{font-family:var(--hand);font-size:38px;color:var(--garnet);line-height:1.2;font-weight:400}
   footer .sub{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px}
 
   @media (max-width:420px){
@@ -236,7 +248,7 @@
         <path d="M64 262 C48 248 32 250 22 262 C36 274 54 274 64 262 Z"/>
         <path d="M64 246 C80 232 96 234 106 246 C90 258 74 258 64 246 Z"/>
       </g>
-      <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#D96B27"/>
+      <path d="M32 122 C16 128 10 148 15 168 C19 186 27 196 33 200 C40 196 49 186 52 168 C57 148 49 128 32 122 Z" fill="#E07A26"/>
       <g fill="none" stroke="#A85718" stroke-width="1.3" opacity=".5">
         <path d="M33 126 C31 148 31 176 33 198"/><path d="M21 130 C16 152 20 180 28 197"/><path d="M45 130 C50 152 46 180 38 197"/>
       </g>
@@ -255,12 +267,12 @@
         <path d="M62 142 L92 128"/><path d="M62 106 L36 92"/><path d="M62 90 L86 74"/>
       </g>
       <g>
-        <path d="M34 232 L20 214 L28 190 L44 210 Z" fill="#C0802B"/>
+        <path d="M34 232 L20 214 L28 190 L44 210 Z" fill="#C47B2B"/>
         <path d="M92 198 L108 182 L102 158 L84 178 Z" fill="#D9A93A"/>
-        <path d="M32 162 L16 146 L24 122 L42 142 Z" fill="#C0802B"/>
-        <path d="M92 128 L110 114 L104 90 L86 110 Z" fill="#D96B27"/>
+        <path d="M32 162 L16 146 L24 122 L42 142 Z" fill="#C47B2B"/>
+        <path d="M92 128 L110 114 L104 90 L86 110 Z" fill="#E07A26"/>
         <path d="M36 92 L20 76 L30 54 L46 74 Z" fill="#D9A93A"/>
-        <path d="M86 74 L102 58 L94 36 L78 56 Z" fill="#C0802B"/>
+        <path d="M86 74 L102 58 L94 36 L78 56 Z" fill="#C47B2B"/>
       </g>
     </symbol>
 
@@ -268,7 +280,7 @@
       <g fill="none" stroke="#997B3A" stroke-width="2.8" stroke-linecap="round">
         <path d="M55 330 C52 250 58 190 55 118"/>
       </g>
-      <g fill="#C0802B">
+      <g fill="#C47B2B">
         <ellipse cx="55" cy="52" rx="7" ry="15"/>
         <ellipse cx="41" cy="74" rx="7" ry="14" transform="rotate(-22 41 74)"/>
         <ellipse cx="69" cy="74" rx="7" ry="14" transform="rotate(22 69 74)"/>
@@ -277,7 +289,7 @@
         <ellipse cx="42" cy="118" rx="7" ry="14" transform="rotate(-22 42 118)"/>
         <ellipse cx="68" cy="118" rx="7" ry="14" transform="rotate(22 68 118)"/>
       </g>
-      <g fill="none" stroke="#C0802B" stroke-width="1.2" stroke-linecap="round" opacity=".8">
+      <g fill="none" stroke="#C47B2B" stroke-width="1.2" stroke-linecap="round" opacity=".8">
         <path d="M55 38 L55 8"/><path d="M41 60 L30 30"/><path d="M69 60 L80 30"/>
         <path d="M41 84 L28 58"/><path d="M69 84 L82 58"/>
       </g>
@@ -296,13 +308,13 @@
         <path d="M62 112 C40 100 26 76 34 54 C52 62 62 86 62 112 Z"/>
         <path d="M62 112 C84 100 98 76 90 54 C72 62 62 86 62 112 Z"/>
       </g>
-      <g fill="#7A2034">
+      <g fill="#862B28">
         <circle cx="62" cy="176" r="11"/><circle cx="46" cy="192" r="11"/><circle cx="78" cy="192" r="11"/>
         <circle cx="62" cy="206" r="11"/><circle cx="40" cy="214" r="10"/><circle cx="84" cy="214" r="10"/>
         <circle cx="62" cy="232" r="10"/><circle cx="48" cy="240" r="9"/><circle cx="76" cy="240" r="9"/>
         <circle cx="62" cy="258" r="9"/>
       </g>
-      <g fill="#9E3248" opacity=".7">
+      <g fill="#A63A36" opacity=".7">
         <circle cx="58" cy="172" r="3.4"/><circle cx="42" cy="188" r="3"/><circle cx="74" cy="188" r="3"/>
         <circle cx="58" cy="202" r="3"/><circle cx="58" cy="228" r="2.6"/>
       </g>
@@ -355,19 +367,19 @@
       <p class="eyebrow fade f1"><span class="ky">Урматтуу конок!</span><span class="ru">Дорогой гость!</span></p>
       <h1 class="names fade f2">Аманкул<span class="amp">&amp;</span>Айгерим</h1>
       <div class="datewrap fade f3">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#C0802B"/><path d="M20 34 L17 12" stroke="#7A5A2A" stroke-width="1.2" fill="none"/></svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L6 20 L14 6 L28 18 Z" fill="#C47B2B"/><path d="M20 34 L17 12" stroke="#7A5A2A" stroke-width="1.2" fill="none"/></svg>
         <p class="date"><span class="ky">19-сентябрь · 2026-жыл</span><span class="ru">19 сентября · 2026</span></p>
-        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#D96B27"/><path d="M20 34 L23 12" stroke="#7A5A2A" stroke-width="1.2" fill="none"/></svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34 L34 20 L26 6 L12 18 Z" fill="#E07A26"/><path d="M20 34 L23 12" stroke="#7A5A2A" stroke-width="1.2" fill="none"/></svg>
       </div>
     </header>
 
     <div class="orn">
       <i></i>
       <svg viewBox="0 0 60 28" aria-hidden="true">
-        <g fill="none" stroke="#C0802B" stroke-width="1.5" stroke-linecap="round">
+        <g fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round">
           <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
         </g>
-        <circle cx="30" cy="6" r="2.4" fill="#8B2635"/>
+        <circle cx="30" cy="6" r="2.4" fill="#862B28"/>
       </svg>
       <i></i>
     </div>
@@ -463,10 +475,10 @@
     <div class="orn">
       <i></i>
       <svg viewBox="0 0 60 28" aria-hidden="true">
-        <g fill="none" stroke="#C0802B" stroke-width="1.5" stroke-linecap="round">
+        <g fill="none" stroke="#C47B2B" stroke-width="1.5" stroke-linecap="round">
           <path d="M30 25 C30 14 20 14 20 8 C20 3 27 3 27 9"/><path d="M30 25 C30 14 40 14 40 8 C40 3 33 3 33 9"/>
         </g>
-        <circle cx="30" cy="6" r="2.4" fill="#8B2635"/>
+        <circle cx="30" cy="6" r="2.4" fill="#862B28"/>
       </svg>
       <i></i>
     </div>
@@ -505,7 +517,7 @@
     var box = document.getElementById("leaves");
     if (!box) return;
     
-    var colors = ["#C0802B", "#D96B27", "#8B2635", "#D9A93A", "#A85718"];
+    var colors = ["#C47B2B", "#E07A26", "#862B28", "#D9A93A", "#A85718"];
     
     for (var i = 0; i < 16; i++){
       var w = document.createElement("div");
